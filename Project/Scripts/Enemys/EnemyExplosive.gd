@@ -43,6 +43,7 @@ func _on_AnimationPlayer_animation_finished(anim):
 	if anim == "ticking":
 		Explode()
 	if anim == "explosion":
+		EENEMYOBSERVER.enemyPower-=50
 		queue_free()
 
 func Explode():

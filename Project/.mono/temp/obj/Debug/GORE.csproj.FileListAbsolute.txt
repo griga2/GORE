@@ -1,0 +1,16 @@
+C:\Andrei\Godot\GORE\Project\.mono\temp\obj\Debug\GORE.csprojAssemblyReference.cache
+C:\Andrei\Godot\GORE\Project\.mono\temp\obj\Debug\GORE.AssemblyInfoInputs.cache
+C:\Andrei\Godot\GORE\Project\.mono\temp\obj\Debug\GORE.AssemblyInfo.cs
+C:\Andrei\Godot\GORE\Project\.mono\temp\obj\Debug\GORE.csproj.CoreCompileInputs.cache
+C:\Andrei\Godot\GORE\Project\.mono\temp\bin\Debug\GORE.dll
+C:\Andrei\Godot\GORE\Project\.mono\temp\bin\Debug\GORE.pdb
+C:\Andrei\Godot\GORE\Project\.mono\temp\obj\Debug\GORE.dll
+C:\Andrei\Godot\GORE\Project\.mono\temp\obj\Debug\GORE.pdb
+D:\GORE\Project\.mono\temp\bin\Debug\GORE.dll
+D:\GORE\Project\.mono\temp\bin\Debug\GORE.pdb
+D:\GORE\Project\.mono\temp\obj\Debug\GORE.csprojAssemblyReference.cache
+D:\GORE\Project\.mono\temp\obj\Debug\GORE.AssemblyInfoInputs.cache
+D:\GORE\Project\.mono\temp\obj\Debug\GORE.AssemblyInfo.cs
+D:\GORE\Project\.mono\temp\obj\Debug\GORE.csproj.CoreCompileInputs.cache
+D:\GORE\Project\.mono\temp\obj\Debug\GORE.dll
+D:\GORE\Project\.mono\temp\obj\Debug\GORE.pdb

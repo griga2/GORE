@@ -1,0 +1,432 @@
+[gd_scene load_steps=28 format=2]
+
+[ext_resource path="res://Textures/Enemys/Enemy_explosive.png" type="Texture" id=1]
+[ext_resource path="res://Scripts/Enemys/EnemyExplosive.gd" type="Script" id=2]
+[ext_resource path="res://Scripts/Enemys/EnemyExplosiveScene.gd" type="Script" id=3]
+[ext_resource path="res://Scenes/Enemys/EBullet.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Textures/Things/dust 2.png" type="Texture" id=5]
+[ext_resource path="res://Textures/Things/Big_explosion.png" type="Texture" id=6]
+[ext_resource path="res://Textures/Things/circle 4x4.png" type="Texture" id=7]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 0, 0 )
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 9, 12 )
+
+[sub_resource type="Curve" id=3]
+max_value = 100.0
+_data = [ Vector2( 0, 0 ), 0.0, 164.286, 0, 0, Vector2( 1, 51.1364 ), 10.7713, 0.0, 0, 0 ]
+
+[sub_resource type="Gradient" id=4]
+offsets = PoolRealArray( 0, 0.549296, 1 )
+colors = PoolColorArray( 0.631373, 0.0431373, 0.0431373, 1, 0.631373, 0.0431373, 0.0431373, 1, 0.286275, 0.0156863, 0.0156863, 0 )
+
+[sub_resource type="Curve" id=5]
+max_value = 100.0
+_data = [ Vector2( 0, 0 ), 0.0, 164.286, 0, 0, Vector2( 1, 51.1364 ), 10.7713, 0.0, 0, 0 ]
+
+[sub_resource type="Gradient" id=6]
+offsets = PoolRealArray( 0, 0.549296, 1 )
+colors = PoolColorArray( 0.631373, 0.0431373, 0.0431373, 1, 0.631373, 0.0431373, 0.0431373, 1, 0.286275, 0.0156863, 0.0156863, 0 )
+
+[sub_resource type="CircleShape2D" id=7]
+radius = 3180.0
+
+[sub_resource type="Gradient" id=8]
+offsets = PoolRealArray( 0.0986842, 0.441558, 1 )
+colors = PoolColorArray( 0.898039, 0, 0, 1, 0.596078, 0.0509804, 0.0509804, 1, 0.235294, 0.0666667, 0.0666667, 0 )
+
+[sub_resource type="GradientTexture" id=9]
+gradient = SubResource( 8 )
+
+[sub_resource type="Curve" id=10]
+max_value = 3.0
+_data = [ Vector2( 0, 2.01818 ), 0.0, 0.0, 0, 0, Vector2( 0.337143, 3 ), 0.0, 0.0, 0, 0, Vector2( 1, 1.43636 ), 0.0, 0.0, 0, 0 ]
+
+[sub_resource type="CurveTexture" id=11]
+curve = SubResource( 10 )
+
+[sub_resource type="ParticlesMaterial" id=12]
+emission_shape = 1
+emission_sphere_radius = 128.0
+flag_disable_z = true
+direction = Vector3( 0, 0, 0 )
+spread = 180.0
+gravity = Vector3( 0, 0, 0 )
+initial_velocity = 20.0
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+damping = 60.0
+scale_curve = SubResource( 11 )
+color_ramp = SubResource( 9 )
+
+[sub_resource type="Curve" id=19]
+max_value = 4.0
+_data = [ Vector2( 0, 2.01818 ), 0.0, 0.0, 0, 0, Vector2( 0.337143, 4 ), 0.0, 0.0, 0, 0, Vector2( 1, 1.43636 ), 0.0, 0.0, 0, 0 ]
+
+[sub_resource type="CurveTexture" id=20]
+curve = SubResource( 19 )
+
+[sub_resource type="ParticlesMaterial" id=13]
+emission_shape = 1
+emission_sphere_radius = 128.0
+flag_disable_z = true
+direction = Vector3( 0, 0, 0 )
+spread = 180.0
+gravity = Vector3( 0, 0, 0 )
+initial_velocity = 20.0
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+damping = 60.0
+scale_curve = SubResource( 20 )
+color_ramp = SubResource( 9 )
+
+[sub_resource type="Animation" id=14]
+step = 0.05
+tracks/0/type = "value"
+tracks/0/path = NodePath("Explosion:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.35 ),
+"transitions": PoolRealArray( 0.57, 3, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ), Vector2( 18, 18 ), Vector2( 13, 13 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Explosion:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.1, 0.15, 0.2, 0.25, 0.3, 0.35 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 0, 1, 2, 3, 4, 5 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Explosion:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.4 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Explosion/Explosion3/CollisionShape2D2:disabled")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ true, false, true ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("Explosion_Particles:emitting")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("Explosion_Particles2:emitting")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0.1 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+
+[sub_resource type="Animation" id=15]
+length = 0.7
+step = 0.05
+tracks/0/type = "value"
+tracks/0/path = NodePath("Body:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.3, 0.6, 0.7 ),
+"transitions": PoolRealArray( 1, 0.22, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 2, 5 ), Vector2( 2, 5 ), Vector2( 7, 2 ), Vector2( 5, 5 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Body:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.3, 0.6, 0.7 ),
+"transitions": PoolRealArray( 1, 0.22, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, -500 ), Vector2( 0, 0 ), Vector2( 0, 5 ), Vector2( 0, 0 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Body:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0.7 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 0 ]
+}
+
+[sub_resource type="Animation" id=16]
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath("Body:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 5, 5 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Body:rotation_degrees")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0.0 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Body:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 0 ]
+}
+
+[sub_resource type="Animation" id=17]
+length = 0.6
+step = 0.05
+tracks/0/type = "value"
+tracks/0/path = NodePath("Body:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 2, 3, 2, 3, 2, 3, 2 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Body:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.6 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 5, 5 ), Vector2( 7, 7 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Body:rotation_degrees")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.05, 0.1, 0.15, 0.2, 0.25, 0.3, 0.35, 0.4, 0.45, 0.5, 0.55, 0.6 ),
+"transitions": PoolRealArray( 1e-05, 1e-05, 1e-05, 1e-05, 1e-05, 1e-05, 1e-05, 1e-05, 1e-05, 1e-05, 1e-05, 1e-05, 1e-05 ),
+"update": 0,
+"values": [ 0.0, 3.0, 0.0, -3.0, 0.0, 5.0, 0.0, -5.0, 0.0, 5.0, 0.0, -5.0, 0.0 ]
+}
+
+[sub_resource type="Animation" id=18]
+length = 0.6
+loop = true
+step = 0.05
+tracks/0/type = "value"
+tracks/0/path = NodePath("Body:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.15, 0.3, 0.45 ),
+"transitions": PoolRealArray( 0.18, 2.9, 0.18, 2.9 ),
+"update": 0,
+"values": [ Vector2( 5, 3.5 ), Vector2( 5, 5 ), Vector2( 5, 3.5 ), Vector2( 5, 5 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Body:rotation_degrees")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.15, 0.3, 0.45 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ 0.0, 10.0, 0.0, -10.0 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Body:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.15, 0.3, 0.45, 0.6 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 0, 1, 0 ]
+}
+
+[node name="EnemyExplosiveScene" type="Node2D"]
+script = ExtResource( 3 )
+bulletPref = ExtResource( 4 )
+
+[node name="EnemyExplosive" type="KinematicBody2D" parent="."]
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="EnemyExplosive"]
+shape = SubResource( 1 )
+disabled = true
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="HandPos" type="Position2D" parent="EnemyExplosive"]
+position = Vector2( 0, -7 )
+
+[node name="DetectArea" type="Area2D" parent="EnemyExplosive"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="EnemyExplosive/DetectArea"]
+shape = SubResource( 2 )
+
+[node name="Eaten_particles" type="CPUParticles2D" parent="EnemyExplosive"]
+position = Vector2( -9.53674e-07, 1.19209e-07 )
+rotation = -1.57079
+scale = Vector2( 5, 5 )
+emitting = false
+amount = 5
+one_shot = true
+explosiveness = 1.0
+spread = 87.95
+gravity = Vector2( -100, 0 )
+initial_velocity = 40.0
+initial_velocity_random = 0.5
+damping_curve = SubResource( 3 )
+scale_amount = 1.3
+scale_amount_random = 0.5
+color_ramp = SubResource( 4 )
+
+[node name="Dead_particles" type="CPUParticles2D" parent="EnemyExplosive"]
+position = Vector2( -9.53674e-07, 1.19209e-07 )
+rotation = -0.523598
+scale = Vector2( 5, 5 )
+z_index = -1
+emitting = false
+amount = 5
+lifetime = 4.0
+one_shot = true
+explosiveness = 1.0
+gravity = Vector2( 0, 0 )
+initial_velocity = 50.0
+initial_velocity_random = 0.5
+damping = 50.0
+damping_curve = SubResource( 5 )
+scale_amount = 1.5
+scale_amount_random = 1.0
+color_ramp = SubResource( 6 )
+
+[node name="Body" type="Sprite" parent="EnemyExplosive"]
+scale = Vector2( 5, 5 )
+z_index = -1
+texture = ExtResource( 1 )
+hframes = 4
+
+[node name="Explosion" type="Sprite" parent="EnemyExplosive"]
+visible = false
+scale = Vector2( 13, 13 )
+texture = ExtResource( 6 )
+vframes = 6
+frame = 5
+
+[node name="Explosion3" type="Area2D" parent="EnemyExplosive/Explosion" groups=[
+"Damage",
+"Explosion",
+]]
+visible = false
+scale = Vector2( 0.0666666, 0.0666666 )
+collision_layer = 2
+collision_mask = 2147483650
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="EnemyExplosive/Explosion/Explosion3"]
+scale = Vector2( 0.0285714, 0.0285714 )
+shape = SubResource( 7 )
+disabled = true
+
+[node name="Explosion_Particles" type="Particles2D" parent="EnemyExplosive"]
+emitting = false
+lifetime = 0.4
+one_shot = true
+explosiveness = 1.0
+process_material = SubResource( 12 )
+texture = ExtResource( 7 )
+
+[node name="Explosion_Particles2" type="Particles2D" parent="EnemyExplosive"]
+emitting = false
+lifetime = 0.4
+one_shot = true
+explosiveness = 1.0
+process_material = SubResource( 13 )
+texture = ExtResource( 5 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="EnemyExplosive"]
+anims/explosion = SubResource( 14 )
+anims/spawn = SubResource( 15 )
+anims/stay = SubResource( 16 )
+anims/ticking = SubResource( 17 )
+anims/walk = SubResource( 18 )
+[connection signal="area_entered" from="EnemyExplosive/DetectArea" to="EnemyExplosive" method="_DetectArea_area_entered"]
+[connection signal="animation_finished" from="EnemyExplosive/AnimationPlayer" to="EnemyExplosive" method="_on_AnimationPlayer_animation_finished"]
+[connection signal="animation_finished" from="EnemyExplosive/AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]

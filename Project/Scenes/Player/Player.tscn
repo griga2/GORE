@@ -1,0 +1,247 @@
+[gd_scene load_steps=11 format=2]
+
+[ext_resource path="res://Textures/Player/Player.png" type="Texture" id=1]
+[ext_resource path="res://Scripts/Player/Player.gd" type="Script" id=2]
+[ext_resource path="res://Scenes/Player/Mouse.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Scenes/Player/PBullet.tscn" type="PackedScene" id=4]
+
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 17, 25 )
+
+[sub_resource type="AtlasTexture" id=2]
+atlas = ExtResource( 1 )
+region = Rect2( 0, 0, 8, 9 )
+
+[sub_resource type="AtlasTexture" id=3]
+atlas = ExtResource( 1 )
+region = Rect2( 8, 1, 4, 2 )
+
+[sub_resource type="Animation" id=4]
+resource_name = "stay"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath("PBodyRight:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 3.5, 3.5 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("PBodyRight:rotation_degrees")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0.0 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("PBodyLeft:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 3.5, 3.5 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("PBodyLeft:rotation_degrees")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0.0 ]
+}
+
+[sub_resource type="Animation" id=5]
+resource_name = "walk"
+length = 0.8
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("PBodyRight:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2, 0.4, 0.6 ),
+"transitions": PoolRealArray( 0.18, 2.9, 0.18, 2.9 ),
+"update": 0,
+"values": [ Vector2( 3.5, 2.5 ), Vector2( 3.5, 3.5 ), Vector2( 3.5, 2.5 ), Vector2( 3.5, 3.5 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("PBodyRight:rotation_degrees")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.2, 0.4, 0.6 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ 0.0, 7.0, 0.0, -7.0 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("PBodyLeft:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.2, 0.4, 0.6 ),
+"transitions": PoolRealArray( 0.18, 2.9, 0.18, 2.9 ),
+"update": 0,
+"values": [ Vector2( 3.5, 2.5 ), Vector2( 3.5, 3.5 ), Vector2( 3.5, 2.5 ), Vector2( 3.5, 3.5 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("PBodyLeft:rotation_degrees")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 0.2, 0.4, 0.6 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ 0.0, 7.0, 0.0, -7.0 ]
+}
+
+[sub_resource type="Animation" id=6]
+resource_name = "walk (copy)"
+length = 0.4
+tracks/0/type = "value"
+tracks/0/path = NodePath("PBodyRight:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2, 0.4, 0.400836 ),
+"transitions": PoolRealArray( 2.3, 0.18, 1, 2.92817 ),
+"update": 0,
+"values": [ Vector2( 3.5, 3.5 ), Vector2( 3.5, 2.5 ), Vector2( 3.5, 3.5 ), Vector2( 3.5, 3.5 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("PBodyRight:rotation_degrees")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = false
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0.0 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("PBodyLeft:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.2, 0.4, 0.401 ),
+"transitions": PoolRealArray( 2.3, 0.18, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 3.5, 3.5 ), Vector2( 3.5, 2.5 ), Vector2( 3.5, 3.5 ), Vector2( 3.5, 3.5 ) ]
+}
+
+[node name="Player2" type="KinematicBody2D"]
+script = ExtResource( 2 )
+bulletPref = ExtResource( 4 )
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource( 1 )
+
+[node name="PBodyRight" type="Sprite" parent="."]
+visible = false
+scale = Vector2( 3.5, 3.5 )
+texture = SubResource( 2 )
+
+[node name="PHand1" type="Sprite" parent="PBodyRight"]
+position = Vector2( 3, -1.5 )
+rotation = 1.57079
+texture = SubResource( 3 )
+offset = Vector2( 2, -1 )
+
+[node name="ShootPos" type="Position2D" parent="PBodyRight/PHand1"]
+position = Vector2( 3.78572, -1.5714 )
+rotation = -1.57079
+scale = Vector2( 0.285714, 0.285714 )
+
+[node name="PHand2" type="Sprite" parent="PBodyRight"]
+position = Vector2( 3, -2.5 )
+rotation = -7.85397
+texture = SubResource( 3 )
+offset = Vector2( 2, 0 )
+
+[node name="ShootPos" type="Position2D" parent="PBodyRight/PHand2"]
+position = Vector2( 3.7857, -0.714334 )
+rotation = 1.57078
+scale = Vector2( 0.285714, 0.285714 )
+
+[node name="PBodyLeft" type="Sprite" parent="."]
+scale = Vector2( 3.5, 3.5 )
+texture = SubResource( 2 )
+flip_h = true
+
+[node name="PHand1" type="Sprite" parent="PBodyLeft"]
+position = Vector2( -3, -1.5 )
+rotation = 1.57079
+texture = SubResource( 3 )
+offset = Vector2( 2, 1 )
+flip_v = true
+
+[node name="ShootPos" type="Position2D" parent="PBodyLeft/PHand1"]
+position = Vector2( 3.7857, 1.57145 )
+rotation = -1.57079
+scale = Vector2( 0.285714, 0.285714 )
+
+[node name="PHand2" type="Sprite" parent="PBodyLeft"]
+visible = false
+position = Vector2( -3, -2.5 )
+rotation = -7.85397
+texture = SubResource( 3 )
+offset = Vector2( 2, 0 )
+flip_v = true
+
+[node name="ShootPos" type="Position2D" parent="PBodyLeft/PHand2"]
+position = Vector2( 3.78572, 0.714241 )
+rotation = 1.57078
+scale = Vector2( 0.285714, 0.285714 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/stay = SubResource( 4 )
+anims/walk = SubResource( 5 )
+"anims/walk (copy)" = SubResource( 6 )
+
+[node name="Mouse" parent="." instance=ExtResource( 3 )]
+position = Vector2( -36, 12 )
+
+[node name="HandsPos" type="Position2D" parent="."]
+position = Vector2( 0, -7 )
+
+[node name="HandsLPos" type="Position2D" parent="."]
+position = Vector2( -11, -7 )
+
+[node name="GunTimer" type="Timer" parent="."]
+wait_time = 0.3
+one_shot = true

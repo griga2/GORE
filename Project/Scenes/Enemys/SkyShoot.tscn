@@ -1,0 +1,385 @@
+[gd_scene load_steps=16 format=2]
+
+[ext_resource path="res://Textures/Enemys/skyShoot.png" type="Texture" id=1]
+[ext_resource path="res://Textures/Things/point.png" type="Texture" id=2]
+[ext_resource path="res://Scripts/Enemys/SkyShoot.gd" type="Script" id=3]
+
+[sub_resource type="Animation" id=1]
+resource_name = "Shot"
+length = 0.3
+step = 0.025
+tracks/0/type = "value"
+tracks/0/path = NodePath("Ray:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.15, 0.3 ),
+"transitions": PoolRealArray( 1, 0.353553, 1 ),
+"update": 0,
+"values": [ Vector2( 9, 1500 ), Vector2( 9, 1500 ), Vector2( 76, 1500 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("GroundSprite:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.125, 0.15, 0.175, 0.2 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 0, 1, 2, 3 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("GroundSprite:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 4, 4 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Ray:self_modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 0.15 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 0.898039, 0, 0, 0.521569 ), Color( 0.898039, 0, 0, 1 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("DamageArea/CollisionShape2D:disabled")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0, 0.15 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("GroundSprite:z_index")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0, 0.15 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ -1, 1 ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("Shot_Particles2:emitting")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0.225 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/7/type = "value"
+tracks/7/path = NodePath("Shot_Particles:emitting")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 0.225 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/8/type = "value"
+tracks/8/path = NodePath("Particles:emitting")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/keys = {
+"times": PoolRealArray( 0.225 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+
+[sub_resource type="Animation" id=2]
+resource_name = "end"
+length = 0.5
+step = 0.025
+tracks/0/type = "value"
+tracks/0/path = NodePath("Ray:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.3 ),
+"transitions": PoolRealArray( 0.366021, 1 ),
+"update": 0,
+"values": [ Vector2( 76, 1500 ), Vector2( 0, 1500 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("GroundSprite:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 3 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("GroundSprite:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.3 ),
+"transitions": PoolRealArray( 0.37, 1 ),
+"update": 0,
+"values": [ Vector2( 4, 4 ), Vector2( 0, 0 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("DamageArea/CollisionShape2D:disabled")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("GroundSprite:z_index")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ 1, -1 ]
+}
+
+[sub_resource type="Animation" id=3]
+length = 1.5
+step = 0.05
+tracks/0/type = "value"
+tracks/0/path = NodePath("GroundSprite:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.25, 0.5 ),
+"transitions": PoolRealArray( 0.435275, 1.86607, 1 ),
+"update": 0,
+"values": [ Vector2( 1e-05, 1e-05 ), Vector2( 5, 5 ), Vector2( 4, 4 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("GroundSprite:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 0 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Ray:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.25 ),
+"transitions": PoolRealArray( 0.353553, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 1500 ), Vector2( 9, 1500 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Ray:self_modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 0.898039, 0, 0, 0.521569 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("DamageArea/CollisionShape2D:disabled")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("GroundSprite:z_index")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ -1 ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("Particles:emitting")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0, 0.3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ false, true ]
+}
+
+[sub_resource type="CapsuleShape2D" id=4]
+radius = 16.0
+height = 33.9999
+
+[sub_resource type="Gradient" id=5]
+offsets = PoolRealArray( 0, 0.263158, 0.730263 )
+colors = PoolColorArray( 0.898039, 0, 0, 1, 0.898039, 0, 0, 1, 0.596078, 0.0509804, 0.0509804, 1 )
+
+[sub_resource type="GradientTexture" id=6]
+gradient = SubResource( 5 )
+
+[sub_resource type="Curve" id=7]
+max_value = 5.0
+_data = [ Vector2( 0, 4 ), 0.0, 0.0, 0, 0, Vector2( 0.32, 5 ), 0.0, 0.0, 0, 0, Vector2( 1, 0 ), 0.0, 0.0, 0, 0 ]
+
+[sub_resource type="CurveTexture" id=8]
+curve = SubResource( 7 )
+
+[sub_resource type="ParticlesMaterial" id=9]
+lifetime_randomness = 0.25
+flag_disable_z = true
+spread = 35.0
+gravity = Vector3( 0, 250, 0 )
+initial_velocity = 157.95
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+scale_random = 1.0
+scale_curve = SubResource( 8 )
+color_ramp = SubResource( 6 )
+
+[sub_resource type="Gradient" id=10]
+offsets = PoolRealArray( 0.0263158, 0.243421, 0.434211, 0.638158 )
+colors = PoolColorArray( 0, 0, 0, 1, 0.898039, 0, 0, 1, 0.898039, 0, 0, 1, 0.596078, 0.0509804, 0.0509804, 1 )
+
+[sub_resource type="GradientTexture" id=11]
+gradient = SubResource( 10 )
+
+[sub_resource type="ParticlesMaterial" id=12]
+lifetime_randomness = 0.25
+flag_disable_z = true
+spread = 5.0
+gravity = Vector3( 100, 0, 0 )
+initial_velocity = 157.95
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+scale_random = 1.0
+scale_curve = SubResource( 8 )
+color_ramp = SubResource( 11 )
+
+[node name="SkyShoot" type="Node2D"]
+self_modulate = Color( 1, 0, 0, 1 )
+position = Vector2( 540, 355 )
+script = ExtResource( 3 )
+
+[node name="AnimPlayer" type="AnimationPlayer" parent="."]
+anims/Shot = SubResource( 1 )
+anims/end = SubResource( 2 )
+anims/ready = SubResource( 3 )
+
+[node name="GroundSprite" type="Sprite" parent="."]
+scale = Vector2( 1e-05, 1e-05 )
+z_index = -1
+texture = ExtResource( 1 )
+vframes = 4
+
+[node name="Ray" type="Sprite" parent="."]
+self_modulate = Color( 0.898039, 0, 0, 0.521569 )
+scale = Vector2( 1e-05, 1500 )
+z_index = 1
+texture = ExtResource( 2 )
+offset = Vector2( 0, -0.5 )
+
+[node name="DamageArea" type="Area2D" parent="." groups=[
+"Damage",
+"Explosion",
+]]
+collision_layer = 3
+collision_mask = 3
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DamageArea"]
+rotation = 1.57079
+shape = SubResource( 4 )
+disabled = true
+
+[node name="Shot_Particles" type="Particles2D" parent="."]
+position = Vector2( 38, 0 )
+rotation = -0.523598
+emitting = false
+lifetime = 0.7
+one_shot = true
+explosiveness = 0.75
+process_material = SubResource( 9 )
+
+[node name="Shot_Particles2" type="Particles2D" parent="."]
+position = Vector2( -38, 0 )
+rotation = 0.261799
+scale = Vector2( -1, 1 )
+emitting = false
+lifetime = 0.7
+one_shot = true
+explosiveness = 0.75
+process_material = SubResource( 9 )
+
+[node name="Particles" type="Particles2D" parent="."]
+position = Vector2( 0, -2 )
+rotation = -1.57079
+emitting = false
+lifetime = 0.7
+process_material = SubResource( 12 )
+[connection signal="animation_finished" from="AnimPlayer" to="." method="AnimPlayer_finished"]

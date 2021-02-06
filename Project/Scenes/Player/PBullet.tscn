@@ -1,0 +1,61 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://Textures/Player/Player.png" type="Texture" id=1]
+[ext_resource path="res://Scripts/Player/PBullet.gd" type="Script" id=2]
+[ext_resource path="res://Textures/Things/Bullet.png" type="Texture" id=3]
+
+[sub_resource type="GDScript" id=1]
+script/source = "extends Area2D
+
+var vector = Vector2(0,0)
+
+"
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 9, 6 )
+
+[sub_resource type="AtlasTexture" id=3]
+atlas = ExtResource( 1 )
+region = Rect2( 4, 0, 1, 1 )
+
+[sub_resource type="RectangleShape2D" id=4]
+extents = Vector2( 0, 0 )
+
+[node name="PBullet" type="KinematicBody2D"]
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="DetectArea" type="Area2D" parent="." groups=[
+"Player_bullet",
+]]
+collision_mask = 0
+script = SubResource( 1 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DetectArea"]
+shape = SubResource( 2 )
+
+[node name="Sprite" type="Sprite" parent="DetectArea"]
+visible = false
+modulate = Color( 0.85098, 0.435294, 0.435294, 1 )
+position = Vector2( -9.53674e-07, 0 )
+scale = Vector2( 8.25, 8.25 )
+texture = SubResource( 3 )
+region_rect = Rect2( 3, 0, 3, 5 )
+
+[node name="Sprite2" type="Sprite" parent="DetectArea"]
+position = Vector2( -0.453125, -5.96046e-08 )
+scale = Vector2( 3.3, 1.7 )
+texture = ExtResource( 3 )
+region_rect = Rect2( 3, 0, 3, 5 )
+
+[node name="TimerDie" type="Timer" parent="."]
+wait_time = 2.0
+one_shot = true
+autostart = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource( 4 )
+disabled = true
+[connection signal="timeout" from="TimerDie" to="." method="_on_TimerDie_timeout"]

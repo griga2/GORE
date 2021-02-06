@@ -61,14 +61,14 @@ damping = 60.0
 scale_curve = SubResource( 11 )
 color_ramp = SubResource( 9 )
 
-[sub_resource type="Curve" id=19]
+[sub_resource type="Curve" id=13]
 max_value = 4.0
 _data = [ Vector2( 0, 2.01818 ), 0.0, 0.0, 0, 0, Vector2( 0.337143, 4 ), 0.0, 0.0, 0, 0, Vector2( 1, 1.43636 ), 0.0, 0.0, 0, 0 ]
 
-[sub_resource type="CurveTexture" id=20]
-curve = SubResource( 19 )
+[sub_resource type="CurveTexture" id=14]
+curve = SubResource( 13 )
 
-[sub_resource type="ParticlesMaterial" id=13]
+[sub_resource type="ParticlesMaterial" id=15]
 emission_shape = 1
 emission_sphere_radius = 128.0
 flag_disable_z = true
@@ -79,10 +79,10 @@ initial_velocity = 20.0
 orbit_velocity = 0.0
 orbit_velocity_random = 0.0
 damping = 60.0
-scale_curve = SubResource( 20 )
+scale_curve = SubResource( 14 )
 color_ramp = SubResource( 9 )
 
-[sub_resource type="Animation" id=14]
+[sub_resource type="Animation" id=16]
 step = 0.05
 tracks/0/type = "value"
 tracks/0/path = NodePath("Explosion:scale")
@@ -157,7 +157,7 @@ tracks/5/keys = {
 "values": [ true ]
 }
 
-[sub_resource type="Animation" id=15]
+[sub_resource type="Animation" id=17]
 length = 0.7
 step = 0.05
 tracks/0/type = "value"
@@ -197,7 +197,7 @@ tracks/2/keys = {
 "values": [ 0 ]
 }
 
-[sub_resource type="Animation" id=16]
+[sub_resource type="Animation" id=18]
 length = 0.5
 tracks/0/type = "value"
 tracks/0/path = NodePath("Body:scale")
@@ -236,7 +236,7 @@ tracks/2/keys = {
 "values": [ 0 ]
 }
 
-[sub_resource type="Animation" id=17]
+[sub_resource type="Animation" id=19]
 length = 0.6
 step = 0.05
 tracks/0/type = "value"
@@ -276,7 +276,7 @@ tracks/2/keys = {
 "values": [ 0.0, 3.0, 0.0, -3.0, 0.0, 5.0, 0.0, -5.0, 0.0, 5.0, 0.0, -5.0, 0.0 ]
 }
 
-[sub_resource type="Animation" id=18]
+[sub_resource type="Animation" id=20]
 length = 0.6
 loop = true
 step = 0.05
@@ -418,15 +418,15 @@ emitting = false
 lifetime = 0.4
 one_shot = true
 explosiveness = 1.0
-process_material = SubResource( 13 )
+process_material = SubResource( 15 )
 texture = ExtResource( 5 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="EnemyExplosive"]
-anims/explosion = SubResource( 14 )
-anims/spawn = SubResource( 15 )
-anims/stay = SubResource( 16 )
-anims/ticking = SubResource( 17 )
-anims/walk = SubResource( 18 )
+anims/explosion = SubResource( 16 )
+anims/spawn = SubResource( 17 )
+anims/stay = SubResource( 18 )
+anims/ticking = SubResource( 19 )
+anims/walk = SubResource( 20 )
 [connection signal="area_entered" from="EnemyExplosive/DetectArea" to="EnemyExplosive" method="_DetectArea_area_entered"]
-[connection signal="animation_finished" from="EnemyExplosive/AnimationPlayer" to="EnemyExplosive" method="_on_AnimationPlayer_animation_finished"]
 [connection signal="animation_finished" from="EnemyExplosive/AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]
+[connection signal="animation_finished" from="EnemyExplosive/AnimationPlayer" to="EnemyExplosive" method="_on_AnimationPlayer_animation_finished"]

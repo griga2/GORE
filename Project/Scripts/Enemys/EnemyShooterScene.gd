@@ -14,6 +14,7 @@ func _on_GunTimer_timeout():
 
 func _on_AnimationPlayer_animation_finished(anim):
 	if anim == "dead":
+		EENEMYOBSERVER.enemyPower-=100
 		queue_free()
 
 

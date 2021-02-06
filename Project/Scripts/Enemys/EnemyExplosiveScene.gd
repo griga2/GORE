@@ -8,6 +8,7 @@ var dead
 func _on_AnimationPlayer_animation_finished(anim):
 	if anim == "dead":
 		dead = true
+		EENEMYOBSERVER.enemyPower-=150
 		queue_free()
 		
 
@@ -19,5 +20,6 @@ func Eaten():
 	pass
 #	is_eaten = true
 #	queue_free()
+
 func GetType():
 	return "Shooter"

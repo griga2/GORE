@@ -88,6 +88,7 @@ func Hands_showing_and_rotate():
 func _on_AnimationPlayer_animation_finished(anim):
 	if anim == "spawn":
 		ready = true
+	
 
 
 func _DetectArea_area_entered(area):
@@ -96,6 +97,7 @@ func _DetectArea_area_entered(area):
 			Dead(area)
 
 func Dead(area):
+	EENEMYOBSERVER.enemyPower-=100
 	$AnimationPlayer.play("dead")
 	$Dead_particles.rotation_degrees = area.global_rotation_degrees
 	$Dead_Sprite.global_rotation_degrees = area.global_rotation_degrees + 45
@@ -115,6 +117,7 @@ func Eaten():
 	$Dead_Sprite.hide()
 	$Eaten_particles.emitting = true
 	emit_signal("eaten")
-
+	
+	
 func GetType():
 	return "Shooter"

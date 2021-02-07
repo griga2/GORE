@@ -194,12 +194,6 @@ func Detect_mouse_position(look_angle):
 		else:#Если мышка справа
 			current_hand = $PBodyRight/PHand2
 
-func DashMouse():
-	pass
-
-func DashKeyboard():
-	pass
-	
 
 func Damage(damage, area):
 	GLOBAL.PlayerHP -= damage
@@ -233,7 +227,7 @@ func Dead(area):
 
 
 func HealthTimer_timeout():
-	can_damage = true
+	pass
 
 
 func PlayerAnim_anim_finished(anim_name):

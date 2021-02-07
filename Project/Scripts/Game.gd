@@ -1,6 +1,5 @@
 extends Node2D
 
-
 onready var shooterEnemyPrefab = load("res://Scenes/Enemys/Enemy_shooter.tscn")
 onready var skyShotPrefab = load("res://Scenes/Enemys/SkyShoot.tscn")
 onready var explosiveEnemyPrefab = load("res://Scenes/Enemys/Enemy_explosive.tscn")
@@ -8,7 +7,6 @@ onready var explosiveEnemyPrefab = load("res://Scenes/Enemys/Enemy_explosive.tsc
 func _ready():
 	GLOBAL.PlayerHaveGun = true
 	GLOBAL.PlayerPref.PlayerUpGun()
-
 	pass
 
 var EnemyPowerNow = int(0)
@@ -62,6 +60,7 @@ func AddShooter():
 		enemy.position.x = x
 		enemy.position.y = y
 		return enemy
+
 
 func _on_LasersTimer_timeout():
 	pass

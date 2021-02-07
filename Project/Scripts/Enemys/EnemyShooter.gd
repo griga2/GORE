@@ -97,6 +97,7 @@ func _DetectArea_area_entered(area):
 			Dead(area)
 
 func Dead(area):
+	EENEMYOBSERVER.enemyPower-=100
 	$AnimationPlayer.play("dead")
 	$Dead_particles.rotation_degrees = area.global_rotation_degrees
 	$Dead_Sprite.global_rotation_degrees = area.global_rotation_degrees + 45

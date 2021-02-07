@@ -1,7 +1,5 @@
 extends Node2D
 
-
-
 onready var shooterEnemyPrefab = load("res://Scenes/Enemys/Enemy_shooter.tscn")
 onready var skyShotPrefab = load("res://Scenes/Enemys/SkyShoot.tscn")
 onready var explosiveEnemyPrefab = load("res://Scenes/Enemys/Enemy_explosive.tscn")
@@ -61,6 +59,7 @@ func AddShooter():
 	enemy.position.y = y
 	EENEMYOBSERVER.enemyPower+=100
 	return enemy
+
 
 func _on_LasersTimer_timeout():
 	pass

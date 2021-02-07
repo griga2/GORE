@@ -31,7 +31,7 @@ offsets = PoolRealArray( 0, 0.549296, 1 )
 colors = PoolColorArray( 0.631373, 0.0431373, 0.0431373, 1, 0.631373, 0.0431373, 0.0431373, 1, 0.286275, 0.0156863, 0.0156863, 0 )
 
 [sub_resource type="CircleShape2D" id=7]
-radius = 3180.0
+radius = 3583.18
 
 [sub_resource type="Gradient" id=8]
 offsets = PoolRealArray( 0.0986842, 0.441558, 1 )
@@ -395,7 +395,6 @@ frame = 5
 "Damage",
 "Explosion",
 ]]
-visible = false
 scale = Vector2( 0.0666666, 0.0666666 )
 collision_layer = 2
 collision_mask = 2147483650
@@ -403,7 +402,6 @@ collision_mask = 2147483650
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="EnemyExplosive/Explosion/Explosion3"]
 scale = Vector2( 0.0285714, 0.0285714 )
 shape = SubResource( 7 )
-disabled = true
 
 [node name="Explosion_Particles" type="Particles2D" parent="EnemyExplosive"]
 emitting = false
@@ -428,5 +426,5 @@ anims/stay = SubResource( 18 )
 anims/ticking = SubResource( 19 )
 anims/walk = SubResource( 20 )
 [connection signal="area_entered" from="EnemyExplosive/DetectArea" to="EnemyExplosive" method="_DetectArea_area_entered"]
-[connection signal="animation_finished" from="EnemyExplosive/AnimationPlayer" to="EnemyExplosive" method="_on_AnimationPlayer_animation_finished"]
 [connection signal="animation_finished" from="EnemyExplosive/AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]
+[connection signal="animation_finished" from="EnemyExplosive/AnimationPlayer" to="EnemyExplosive" method="_on_AnimationPlayer_animation_finished"]

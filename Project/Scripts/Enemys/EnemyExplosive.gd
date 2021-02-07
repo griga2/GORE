@@ -1,5 +1,5 @@
 extends KinematicBody2D
-var speed = 200 #Скорость вперёд
+var speed = 350 #Скорость вперёд
 var backSpeed = -150 #Скорость назад
 var move = true #Можно ли двигаться
 var ready = false #Готов ли враг

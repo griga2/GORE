@@ -15,7 +15,7 @@
 [ext_resource path="res://Textures/Things/dust 2.png" type="Texture" id=14]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 17, 25 )
+extents = Vector2( 20.7361, 27.9266 )
 
 [sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 0, 0 )
@@ -868,8 +868,8 @@ collision_layer = 2
 collision_mask = 2
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Player/DetectArea"]
+position = Vector2( 0.420471, -2.10225 )
 shape = SubResource( 1 )
-disabled = true
 
 [node name="KinematicCollision" type="CollisionShape2D" parent="Player"]
 shape = SubResource( 2 )

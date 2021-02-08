@@ -850,8 +850,7 @@ wait_time = 0.5
 one_shot = true
 
 [node name="HealthTimer" type="Timer" parent="Player"]
-wait_time = 2.0
-one_shot = true
+wait_time = 0.001
 
 [node name="Health" type="Sprite" parent="Player"]
 self_modulate = Color( 1, 1, 1, 0 )
@@ -873,7 +872,6 @@ shape = SubResource( 1 )
 
 [node name="KinematicCollision" type="CollisionShape2D" parent="Player"]
 shape = SubResource( 2 )
-disabled = true
 
 [node name="HandsPos" type="Position2D" parent="Player"]
 position = Vector2( 0, -8 )

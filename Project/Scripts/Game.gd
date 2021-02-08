@@ -42,10 +42,11 @@ func NeedAddNewMob() -> String:
 
 func CheakDefanceLevel(var NeedSpawnValue ):
 	print ("Function need spawn return ", NeedSpawnValue)
+	var PowerOnStartFunction = MaxPowerBank
 	var HowWasAdd = 0
 	match NeedSpawnValue:
 		"More mobs":
-			HowWasAdd = randi()%100+100
+			HowWasAdd = randi()%100+200
 			MaxPowerBank += HowWasAdd
 			print ("In function CheakDefenceLavel using block More mobs,", HowWasAdd, " was add on MaxPowerBank")
 		"A few mobs":
@@ -58,6 +59,8 @@ func CheakDefanceLevel(var NeedSpawnValue ):
 			print ("In function CheakDefenceLavel using block A less mobs,", HowWasAdd, " was add on MaxPowerBank")
 		_:
 			print ("In function CheakDefenceLavel somethink break, match use defalt block")
+		
+	
 	pass
 
 func AddExplosive():

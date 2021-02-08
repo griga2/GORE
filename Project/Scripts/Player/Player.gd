@@ -208,6 +208,7 @@ func Damage(damage, area):
 
  
 func _DetectArea_area_entered(area):
+	print(GLOBAL.PlayerHP)
 	if area.is_in_group("Damage") and GLOBAL.PlayerHP > 0 && can_damage == true: 
 		if area.is_in_group("Enemy_bullet"):
 			Damage(1, area) #GLOBAL.PlayerHP == 3 or 
@@ -227,6 +228,7 @@ func Dead(area):
 
 
 func HealthTimer_timeout():
+	can_damage = true
 	pass
 
 

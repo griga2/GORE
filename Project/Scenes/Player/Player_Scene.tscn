@@ -846,11 +846,11 @@ one_shot = true
 script = ExtResource( 3 )
 
 [node name="DashDelayTimer" type="Timer" parent="Player"]
-wait_time = 0.5
 one_shot = true
 
 [node name="HealthTimer" type="Timer" parent="Player"]
-wait_time = 0.001
+wait_time = 0.05
+one_shot = true
 
 [node name="Health" type="Sprite" parent="Player"]
 self_modulate = Color( 1, 1, 1, 0 )

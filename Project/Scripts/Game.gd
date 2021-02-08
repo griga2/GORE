@@ -1,5 +1,7 @@
 extends Node2D
 
+var MaxPowerBank = 1500
+
 onready var shooterEnemyPrefab = load("res://Scenes/Enemys/Enemy_shooter.tscn")
 onready var skyShotPrefab = load("res://Scenes/Enemys/SkyShoot.tscn")
 onready var explosiveEnemyPrefab = load("res://Scenes/Enemys/Enemy_explosive.tscn")
@@ -11,16 +13,52 @@ func _ready():
 
 
 func _on_EnemyTimer_timeout():
-	print("Timer finished")
+	print("EnemyTimer finished")
 	DebugSpawnMobs()
-	print (EENEMYOBSERVER.enemyPower)
+	print ("Enemy powerPower = ",EENEMYOBSERVER.enemyPower)
 	
 func DebugSpawnMobs():
+	CheakDefanceLevel(NeedAddNewMob())
 	if (EENEMYOBSERVER.enemyPower<=6000):
 		for j in range(0,4):
 			add_child(AddExplosive())
-			#add_child(AddShooter())
-			#add_child(AddLaser())
+			add_child(AddShooter())
+			add_child(AddLaser())
+
+func NeedAddNewMob() -> String:
+	var Metka = String("Func not work")
+	var PowerNow = 0
+	for enemy in get_tree().get_nodes_in_group("enemys"):
+		PowerNow+=enemy.AddPower()
+	if(MaxPowerBank/4 >= PowerNow):
+		Metka = "More mobs"
+	elif(MaxPowerBank/4 < PowerNow && MaxPowerBank/4*3 >= PowerNow):
+		Metka = "A few mobs"
+	elif(MaxPowerBank/4*3 < PowerNow):
+		Metka = "A less mobs"
+	if (Metka == "" || Metka == "Func not work"):
+		print ("Function NeedAddNewMob is not working correct")
+	return Metka
+
+func CheakDefanceLevel(var NeedSpawnValue ):
+	print ("Function need spawn return ", NeedSpawnValue)
+	var HowWasAdd = 0
+	match NeedSpawnValue:
+		"More mobs":
+			HowWasAdd = randi()%100+100
+			MaxPowerBank += HowWasAdd
+			print ("In function CheakDefenceLavel using block More mobs,", HowWasAdd, " was add on MaxPowerBank")
+		"A few mobs":
+			HowWasAdd = randi()%50+50
+			MaxPowerBank += HowWasAdd
+			print ("In function CheakDefenceLavel using block A few mobs,", HowWasAdd, " was add on MaxPowerBank")
+		"A less mobs":
+			HowWasAdd = randi()%50+50
+			MaxPowerBank -= HowWasAdd
+			print ("In function CheakDefenceLavel using block A less mobs,", HowWasAdd, " was add on MaxPowerBank")
+		_:
+			print ("In function CheakDefenceLavel somethink break, match use defalt block")
+	pass
 
 func AddExplosive():
 	var rand = RandomNumberGenerator.new()
@@ -32,8 +70,9 @@ func AddExplosive():
 	enemy.position.x = x
 	enemy.position.y = y
 	EENEMYOBSERVER.enemyPower+=150
+	enemy.add_to_group("enemys")
 	return enemy
-
+	
 
 func AddLaser():
 	var rand = RandomNumberGenerator.new()
@@ -45,6 +84,7 @@ func AddLaser():
 	enemy.position.x = x
 	enemy.position.y = y
 	EENEMYOBSERVER.enemyPower+=50
+	enemy.add_to_group("enemys")
 	return enemy
 
 
@@ -58,6 +98,7 @@ func AddShooter():
 	enemy.position.x = x
 	enemy.position.y = y
 	EENEMYOBSERVER.enemyPower+=100
+	enemy.add_to_group("enemys")
 	return enemy
 
 

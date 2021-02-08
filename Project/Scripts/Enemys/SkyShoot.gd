@@ -14,6 +14,6 @@ func AnimPlayer_finished(anim_name):
 		EENEMYOBSERVER.enemyPower-=50
 		queue_free()
 
-func GetType():
-	return "Laser"
+func AddPower() -> int:
+	return 50
 

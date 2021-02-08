@@ -119,5 +119,4 @@ func Eaten():
 	emit_signal("eaten")
 	
 	
-func GetType():
-	return "Shooter"
+

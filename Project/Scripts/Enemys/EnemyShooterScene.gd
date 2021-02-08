@@ -29,5 +29,5 @@ func Eaten():
 	pass
 #	is_eaten = true
 #	queue_free()
-func GetType():
-	return "Shooter"
+func AddPower() -> int:
+	return 100

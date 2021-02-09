@@ -213,7 +213,7 @@ func _DetectArea_area_entered(area):
 		if area.is_in_group("Enemy_bullet"):
 			Damage(1, area) #GLOBAL.PlayerHP == 3 or 
 		if area.is_in_group("Explosion"):
-			Damage(2, area)
+			Damage(1, area)
 		if GLOBAL.PlayerHP < 1:
 			Dead(area)
 	elif area.is_in_group("Gun"):

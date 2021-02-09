@@ -58,4 +58,5 @@ autostart = true
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource( 4 )
 disabled = true
+[connection signal="area_entered" from="DetectArea" to="." method="_Bullet_touched"]
 [connection signal="timeout" from="TimerDie" to="." method="_on_TimerDie_timeout"]

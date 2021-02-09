@@ -349,7 +349,9 @@ __meta__ = {
 [node name="HandPos" type="Position2D" parent="EnemyExplosive"]
 position = Vector2( 0, -7 )
 
-[node name="DetectArea" type="Area2D" parent="EnemyExplosive"]
+[node name="DetectArea" type="Area2D" parent="EnemyExplosive" groups=[
+"Enemy_detect_area",
+]]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="EnemyExplosive/DetectArea"]
 shape = SubResource( 2 )
@@ -438,5 +440,5 @@ anims/stay = SubResource( 18 )
 anims/ticking = SubResource( 19 )
 anims/walk = SubResource( 20 )
 [connection signal="area_entered" from="EnemyExplosive/DetectArea" to="EnemyExplosive" method="_DetectArea_area_entered"]
-[connection signal="animation_finished" from="EnemyExplosive/AnimationPlayer" to="EnemyExplosive" method="_on_AnimationPlayer_animation_finished"]
 [connection signal="animation_finished" from="EnemyExplosive/AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]
+[connection signal="animation_finished" from="EnemyExplosive/AnimationPlayer" to="EnemyExplosive" method="_on_AnimationPlayer_animation_finished"]

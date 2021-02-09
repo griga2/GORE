@@ -19,8 +19,8 @@ func DebugSpawnMobs():
 	if (EENEMYOBSERVER.enemyPower<=6000):
 		for j in range(0,4):
 			add_child(AddExplosive())
-			#add_child(AddShooter())
-			#add_child(AddLaser())
+			add_child(AddShooter())
+			add_child(AddLaser())
 
 func AddExplosive():
 	var rand = RandomNumberGenerator.new()

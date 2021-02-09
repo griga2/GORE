@@ -2,6 +2,10 @@ extends Node2D
 
 var MaxPowerBank = 1500
 
+var NeedSpawnShooter = 4
+var NeedSpawnExplosive = 3
+var NeedSpawnLaser = 5
+
 onready var shooterEnemyPrefab = load("res://Scenes/Enemys/Enemy_shooter.tscn")
 onready var skyShotPrefab = load("res://Scenes/Enemys/SkyShoot.tscn")
 onready var explosiveEnemyPrefab = load("res://Scenes/Enemys/Enemy_explosive.tscn")
@@ -46,21 +50,26 @@ func CheakDefanceLevel(var NeedSpawnValue ):
 	var HowWasAdd = 0
 	match NeedSpawnValue:
 		"More mobs":
-			HowWasAdd = randi()%100+200
-			MaxPowerBank += HowWasAdd
 			print ("In function CheakDefenceLavel using block More mobs,", HowWasAdd, " was add on MaxPowerBank")
 		"A few mobs":
-			HowWasAdd = randi()%50+50
-			MaxPowerBank += HowWasAdd
 			print ("In function CheakDefenceLavel using block A few mobs,", HowWasAdd, " was add on MaxPowerBank")
 		"A less mobs":
-			HowWasAdd = randi()%50+50
-			MaxPowerBank -= HowWasAdd
 			print ("In function CheakDefenceLavel using block A less mobs,", HowWasAdd, " was add on MaxPowerBank")
 		_:
 			print ("In function CheakDefenceLavel somethink break, match use defalt block")
-		
-	
+	pass
+
+func AddRandomMobs(var kolvMobs):
+	var rand = rand_range(0,3)
+	match rand:
+		1:
+			pass
+		2:
+			pass
+		3:
+			pass
+		_:
+			pass
 	pass
 
 func AddExplosive():

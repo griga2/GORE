@@ -2,7 +2,7 @@ extends KinematicBody2D
 var hands_script = load("res://Scripts/Hand_Script.gd") #ссылка класс руки
 var player_hands = hands_script.new()#подключение класса руки
 var MOVE_SPEED = 300 #250
-var DASH_SPEED = 675 #500
+var DASH_SPEED = 800 #500
 var can_damage = true #можно ли нанести урон
 onready var current_hand = $PBodyRight/PHand1
 var ready = false

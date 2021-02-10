@@ -11,9 +11,10 @@ func _ready():
 
 
 func _on_EnemyTimer_timeout():
-	print("Timer finished")
-	DebugSpawnMobs()
-	print (EENEMYOBSERVER.enemyPower)
+	if GLOBAL.PlayerDead == false:
+#		print("Timer finished")
+		DebugSpawnMobs()
+#		print (EENEMYOBSERVER.enemyPower)
 	
 func DebugSpawnMobs():
 	if (EENEMYOBSERVER.enemyPower<=6000):

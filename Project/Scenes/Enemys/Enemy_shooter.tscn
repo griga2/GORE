@@ -507,5 +507,5 @@ __meta__ = {
 [connection signal="timeout" from="GunTimer" to="." method="_on_GunTimer_timeout"]
 [connection signal="eaten" from="EnemyShooter" to="." method="Eaten"]
 [connection signal="area_entered" from="EnemyShooter/DetectArea" to="EnemyShooter" method="_DetectArea_area_entered"]
-[connection signal="animation_finished" from="EnemyShooter/AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]
 [connection signal="animation_finished" from="EnemyShooter/AnimationPlayer" to="EnemyShooter" method="_on_AnimationPlayer_animation_finished"]
+[connection signal="animation_finished" from="EnemyShooter/AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]

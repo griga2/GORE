@@ -6,6 +6,8 @@ var NeedSpawnShooter = 4
 var NeedSpawnExplosive = 3
 var NeedSpawnLaser = 5
 
+var EnemyList: Array
+
 onready var shooterEnemyPrefab = load("res://Scenes/Enemys/Enemy_shooter.tscn")
 onready var skyShotPrefab = load("res://Scenes/Enemys/SkyShoot.tscn")
 onready var explosiveEnemyPrefab = load("res://Scenes/Enemys/Enemy_explosive.tscn")
@@ -18,12 +20,15 @@ func _ready():
 
 
 func _on_EnemyTimer_timeout():
-	print("EnemyTimer finished")
+
 	DebugSpawnMobs()
-	print ("Enemy powerPower = ",EENEMYOBSERVER.enemyPower)
-	
+
 func DebugSpawnMobs():
-	CheakDefanceLevel(NeedAddNewMob())
+	EnemyList.append(EnemyClass.new("Shooter"))
+	EnemyList.append(EnemyClass.new("Laser"))
+	EnemyList.append(EnemyClass.new("Explosive"))
+	for enemy in EnemyList:
+		add_child(enemy.Type)
 	
 func NeedAddNewMob() -> String:
 	var Metka = String("Func not work")
@@ -67,34 +72,6 @@ func AddRandomMobs(var kolvMobs):
 		_:
 			pass
 	pass
-
-#func AddExplosive():
-#	var rand = RandomNumberGenerator.new()
-#	var enemy = 
-#	EENEMYOBSERVER.enemyPower+=150
-#	enemy.add_to_group("enemys")
-#	return enemy
-#
-
-#func AddLaser():
-#	var rand = RandomNumberGenerator.new()
-#	var player = GLOBAL.PlayerPref
-#	var spawn_distance = 800
-#	var enemy = skyShotPrefab.instance()
-#	var x = player.global_position.x + rand_range(spawn_distance, -spawn_distance)
-#	var y = player.global_position.y + rand_range(spawn_distance, -spawn_distance)
-#	enemy.position.x = x
-#	enemy.position.y = y
-#	EENEMYOBSERVER.enemyPower+=50
-#	enemy.add_to_group("enemys")
-#	return enemy
-#
-#
-func AddShooter():
-	var enemy = load("res://Scripts/Class/ShooterClass.gd")
-	EENEMYOBSERVER.enemyPower+=100
-	enemy.add_to_group("enemys")
-	return enemy
 
 
 func _on_LasersTimer_timeout():

@@ -8,9 +8,14 @@
 
 config_version=4
 
-_global_script_classes=[  ]
+_global_script_classes=[ {
+"base": "Node2D",
+"class": "EnemyClass",
+"language": "GDScript",
+"path": "res://Scripts/Class/EnemyClass.gd"
+} ]
 _global_script_class_icons={
-
+"EnemyClass": "res://Recources/Enemy.png"
 }
 
 [application]

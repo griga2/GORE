@@ -21,10 +21,11 @@ config/icon="res://icon.png"
 
 [autoload]
 
-GLOBAL="*res://Scenes/GLOBAL.tscn"
-MUSIC="*res://Scenes/MUSIC.tscn"
+GLOBAL="*res://Scenes/globals/GLOBAL.tscn"
+MUSIC="*res://Scenes/globals/MUSIC.tscn"
 EENEMYOBSERVER="*res://Scripts/ENEMYOBSERVER.gd"
 CAMERA="*res://Scenes/Player/CAMERA.tscn"
+INTERFACE="*res://Scenes/globals/INTERFACE.tscn"
 
 [display]
 

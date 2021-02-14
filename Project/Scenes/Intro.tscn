@@ -13,7 +13,7 @@ func _ready():
 
 func _on_Area2D_area_entered(area):
 	if area.is_in_group(\"Player\"):
-#		CAMERA.get_node(\"TEXT\").Show_text(\"KILL\", \"[RMB]\", true)
+		INTERFACE.Show_text(\"KILL\", \"[RMB]\", true)
 #		GLOBAL.PlayerHP = 2
 		queue_free()
 "

@@ -48,4 +48,6 @@ func CheakPosition(var type: String):
 			positionY = player.global_position.y + rand_range(spawn_distance, -spawn_distance)
 		_:
 			print("In func EnemyClass.CheakPosition not found enemy name")
+	Type.position.x=positionX
+	Type.position.y=positionY
 

@@ -6,9 +6,10 @@ var TypeName
 var positionX
 var positionY
 
-func _init(var typeName):
+func _init(var typeName, Obraz):
+	Type=Obraz
 	TypeName = typeName
-	CheakPrefType()
+#	CheakPrefType()
 	CheakPosition(TypeName)
 
 onready var shooterEnemyPrefab = load("res://Scenes/Enemys/Enemy_shooter.tscn")
@@ -18,16 +19,16 @@ onready var explosiveEnemyPrefab = load("res://Scenes/Enemys/Enemy_explosive.tsc
 func _ready():
 	pass
 
-func CheakPrefType():
-	match(TypeName):
-		"Shooter":
-			Type = shooterEnemyPrefab.instance()
-		"Laser":
-			Type = laserEnemyPrefab.instance()
-		"Explosive":
-			Type = explosiveEnemyPrefab.instance()
-		_:
-			print("In func EnemyClass.CheakPrefType not found enemy name")
+#func CheakPrefType():
+#	match(TypeName):
+#		"Shooter":
+#			Type = shooterEnemyPrefab.instance()
+#		"Laser":
+#			Type = laserEnemyPrefab.instance()
+#		"Explosive":
+#			Type = explosiveEnemyPrefab.instance()
+#		_:
+#			print("In func EnemyClass.CheakPrefType not found enemy name")
 
 func CheakPosition(var type: String):
 	var player = GLOBAL.PlayerPref

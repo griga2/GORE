@@ -24,9 +24,9 @@ func _on_EnemyTimer_timeout():
 	DebugSpawnMobs()
 
 func DebugSpawnMobs():
-	EnemyList.append(EnemyClass.new("Shooter"))
-	EnemyList.append(EnemyClass.new("Laser"))
-	EnemyList.append(EnemyClass.new("Explosive"))
+	EnemyList.append(EnemyClass.new("Shooter",shooterEnemyPrefab.instance()))
+	EnemyList.append(EnemyClass.new("Laser",skyShotPrefab.instance()))
+	EnemyList.append(EnemyClass.new("Explosive", explosiveEnemyPrefab.instance()))
 	for enemy in EnemyList:
 		add_child(enemy.Type)
 	

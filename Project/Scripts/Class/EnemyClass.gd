@@ -39,11 +39,11 @@ func CheakPosition(var type: String):
 			positionX = player.global_position.x + rand_range(spawn_distance, -spawn_distance)
 			positionY = player.global_position.y + rand_range(spawn_distance, -spawn_distance)
 		"Laser":
-			spawn_distance = 600
+			spawn_distance = 500
 			positionX = player.global_position.x + rand_range(spawn_distance, -spawn_distance)
 			positionY = player.global_position.y + rand_range(spawn_distance, -spawn_distance)
 		"Explosive":
-			spawn_distance = 400
+			spawn_distance = 500
 			positionX = player.global_position.x + rand_range(spawn_distance, -spawn_distance)
 			positionY = player.global_position.y + rand_range(spawn_distance, -spawn_distance)
 		_:

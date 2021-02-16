@@ -20,9 +20,9 @@ func _ready():
 
 
 func _on_EnemyTimer_timeout():
-
+	AddRandomMobs()
 	DebugSpawnMobs()
-
+	
 func DebugSpawnMobs():
 	EnemyList.append(EnemyClass.new("Shooter",shooterEnemyPrefab.instance()))
 	EnemyList.append(EnemyClass.new("Laser",skyShotPrefab.instance()))
@@ -60,15 +60,15 @@ func CheakDefanceLevel(var NeedSpawnValue ):
 			print ("In function CheakDefenceLavel somethink break, match use defalt block")
 	pass
 
-func AddRandomMobs(var kolvMobs):
-	var rand = rand_range(0,3)
+func AddRandomMobs():
+	var rand = randi()%3+1
 	match rand:
 		1:
-			pass
+			EnemyList.append(EnemyClass.new("Shooter", shooterEnemyPrefab.instance()))
 		2:
-			pass
+			EnemyList.append(EnemyClass.new("Shooter", explosiveEnemyPrefab.instance()))
 		3:
-			pass
+			EnemyList.append(EnemyClass.new("Shooter", skyShotPrefab.instance()))
 		_:
 			pass
 	pass

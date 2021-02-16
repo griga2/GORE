@@ -30,9 +30,9 @@ func DebugSpawnMobs():
 	EnemyList.append(EnemyClass.new("Explosive", explosiveEnemyPrefab.instance()))
 	DeliteEnemy()
 	for enemy in EnemyList:
-		if(enemy.is_in_group("Enemys")!=true):
+#		if(enemy.is_in_group("Enemys")!=true):
 			add_child(enemy.Type)
-			enemy.Type.add_to_group("Enemys")
+#			enemy.Type.add_to_group("Enemys")
 
 
 func NeedAddNewMob() -> String:

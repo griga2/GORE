@@ -319,7 +319,7 @@ scale_random = 1.0
 scale_curve = SubResource( 8 )
 color_ramp = SubResource( 11 )
 
-[node name="SkyShoot" type="Node2D"]
+[node name="SkyShoot" type="KinematicBody2D"]
 self_modulate = Color( 1, 0, 0, 1 )
 position = Vector2( 540, 355 )
 script = ExtResource( 3 )
@@ -368,8 +368,8 @@ process_material = SubResource( 9 )
 
 [node name="Shot_Particles2" type="Particles2D" parent="."]
 position = Vector2( -38, 0 )
-rotation = 0.261799
-scale = Vector2( -1, 1 )
+rotation = -2.87979
+scale = Vector2( 1, -1 )
 emitting = false
 lifetime = 0.7
 one_shot = true

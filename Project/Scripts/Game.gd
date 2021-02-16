@@ -20,6 +20,7 @@ func _ready():
 
 
 func _on_EnemyTimer_timeout():
+	DeliteEnemy()
 	AddRandomMobs()
 	DebugSpawnMobs()
 	
@@ -27,9 +28,13 @@ func DebugSpawnMobs():
 	EnemyList.append(EnemyClass.new("Shooter",shooterEnemyPrefab.instance()))
 	EnemyList.append(EnemyClass.new("Laser",skyShotPrefab.instance()))
 	EnemyList.append(EnemyClass.new("Explosive", explosiveEnemyPrefab.instance()))
+	DeliteEnemy()
 	for enemy in EnemyList:
-		add_child(enemy.Type)
-	
+		if(enemy.is_in_group("Enemys")!=true):
+			add_child(enemy.Type)
+			enemy.Type.add_to_group("Enemys")
+
+
 func NeedAddNewMob() -> String:
 	var Metka = String("Func not work")
 	var PowerNow = 0
@@ -61,7 +66,7 @@ func CheakDefanceLevel(var NeedSpawnValue ):
 	pass
 
 func AddRandomMobs():
-	var rand = randi()%3+1
+	var rand = randi()%2+1
 	match rand:
 		1:
 			EnemyList.append(EnemyClass.new("Shooter", shooterEnemyPrefab.instance()))
@@ -79,4 +84,12 @@ func _on_LasersTimer_timeout():
 func _on_ExplosiveTimer_timeout():
 	pass
 
+func DeliteEnemy():
+	var metka = 0
+	for enemy in EnemyList:
+		if(enemy.has_method("GetDead")):
+			EnemyList.remove(metka)
+		else:
+			pass
+		metka+=1
 

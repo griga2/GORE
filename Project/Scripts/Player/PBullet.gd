@@ -24,7 +24,7 @@ func _activate():
 func _Bullet_touched(area):
 	if area.is_in_group("Enemy_detect_area"):
 		objects_touched += 1
-		if objects_touched >= 5:
+		if objects_touched >= 8:
 			queue_free()
 	pass
 

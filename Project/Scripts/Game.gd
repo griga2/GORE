@@ -32,6 +32,7 @@ func DebugSpawnMobs():
 	for enemy in EnemyList:
 #		if(enemy.is_in_group("Enemys")!=true):
 			add_child(enemy.Type)
+			enemy.connect("dead_for_array", self, "EnemyIsDead")
 #			enemy.Type.add_to_group("Enemys")
 
 
@@ -80,7 +81,10 @@ func AddRandomMobs():
 
 
 func _on_LasersTimer_timeout():
-	pass
+	var enemy = shooterEnemyPrefab
+	add_child(enemy.instance())
+	enemy.connect("dead_for_array", self, "EnemyIsDead")
+
 func _on_ExplosiveTimer_timeout():
 	pass
 
@@ -93,3 +97,6 @@ func DeliteEnemy():
 			pass
 		metka+=1
 
+func EnemyIsDead(enemy):
+	print("enemyolo")
+	pass

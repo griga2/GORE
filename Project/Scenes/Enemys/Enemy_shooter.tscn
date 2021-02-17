@@ -432,7 +432,8 @@ z_index = -1
 texture = ExtResource( 5 )
 
 [node name="PBodyRight" type="Sprite" parent="EnemyShooter"]
-scale = Vector2( 5, 5 )
+position = Vector2( 0, -500 )
+scale = Vector2( 2, 5 )
 texture = SubResource( 7 )
 
 [node name="PHand1" type="Sprite" parent="EnemyShooter/PBodyRight"]
@@ -460,7 +461,8 @@ scale = Vector2( 0.285714, 0.285714 )
 
 [node name="PBodyLeft" type="Sprite" parent="EnemyShooter"]
 visible = false
-scale = Vector2( 5, 5 )
+position = Vector2( 0, -500 )
+scale = Vector2( 2, 5 )
 texture = SubResource( 7 )
 flip_h = true
 
@@ -505,5 +507,6 @@ __meta__ = {
 [connection signal="timeout" from="GunTimer" to="." method="_on_GunTimer_timeout"]
 [connection signal="eaten" from="EnemyShooter" to="." method="Eaten"]
 [connection signal="area_entered" from="EnemyShooter/DetectArea" to="EnemyShooter" method="_DetectArea_area_entered"]
-[connection signal="animation_finished" from="EnemyShooter/AnimationPlayer" to="EnemyShooter" method="_on_AnimationPlayer_animation_finished"]
 [connection signal="animation_finished" from="EnemyShooter/AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]
+[connection signal="animation_finished" from="EnemyShooter/AnimationPlayer" to="EnemyShooter" method="_on_AnimationPlayer_animation_finished"]
+[connection signal="animation_started" from="EnemyShooter/AnimationPlayer" to="." method="AnimStarted"]

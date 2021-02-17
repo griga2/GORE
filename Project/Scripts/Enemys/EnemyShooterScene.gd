@@ -2,6 +2,7 @@ extends Node2D
 onready var bulletPref = load("res://Scenes/Enemys/EBullet.tscn")
 #var is_eaten = false
 var dead = false
+signal dead_for_array
 
 func _on_GunTimer_timeout():
 	if $EnemyShooter.ready == true:
@@ -31,3 +32,9 @@ func Eaten():
 #	queue_free()
 func AddPower() -> int:
 	return 100
+
+
+func AnimStarted(anim):
+	if anim == "dead":
+		emit_signal("dead_for_array", self)
+		pass

@@ -225,6 +225,7 @@ func Dead(area):
 	$PlayerAnim.play("dead")
 	GLOBAL.PlayerDead = true
 	CAMERA.get_node("TEXT").Show_text("DEAD", "[R]", false)
+	
 
 
 func HealthTimer_timeout():

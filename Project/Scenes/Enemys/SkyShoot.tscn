@@ -438,6 +438,7 @@ process_material = SubResource( 13 )
 [node name="Ground_Particles" type="Particles2D" parent="."]
 position = Vector2( 0, -2 )
 rotation = -1.57079
+z_index = -1
 amount = 70
 lifetime = 2.0
 local_coords = false

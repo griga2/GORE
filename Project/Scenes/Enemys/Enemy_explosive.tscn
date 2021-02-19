@@ -440,5 +440,5 @@ anims/stay = SubResource( 18 )
 anims/ticking = SubResource( 19 )
 anims/walk = SubResource( 20 )
 [connection signal="area_entered" from="EnemyExplosive/DetectArea" to="EnemyExplosive" method="_DetectArea_area_entered"]
-[connection signal="animation_finished" from="EnemyExplosive/AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]
 [connection signal="animation_finished" from="EnemyExplosive/AnimationPlayer" to="EnemyExplosive" method="_on_AnimationPlayer_animation_finished"]
+[connection signal="animation_finished" from="EnemyExplosive/AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]

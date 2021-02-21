@@ -32,7 +32,7 @@ func DebugSpawnMobs():
 	for enemy in EnemyList:
 #		if(enemy.is_in_group("Enemys")!=true):
 			add_child(enemy.Type)
-			enemy.connect("dead_for_array", self, "EnemyIsDead")
+			enemy.Type.connect("dead_for_array", self, "EnemyIsDead")
 #			enemy.Type.add_to_group("Enemys")
 
 

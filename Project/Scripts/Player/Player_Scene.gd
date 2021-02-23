@@ -5,12 +5,6 @@ onready var gunTimer = $GunTimer
 export (PackedScene) var bulletPref
 var clicked = false
 
-var screen_size 
-
-func _process(delta):
-	update()
-func _ready():
-	screen_size = get_viewport_rect().size
 
 func _input(event):
 	if event.is_action_pressed("shoot"):
@@ -46,8 +40,3 @@ func Spawn_Bullet():
 		bullet._activate()
 #		$ShootSound.play()
 
-
-func _draw():
-	var Player = GLOBAL.PlayerPref
-	draw_rect(Rect2(screen_size.x/2*-1+Player.position.x,screen_size.y/2*-1+Player.position.y, screen_size.x,75) , Color(100,100,100), 20, false)
-	pass

@@ -51,3 +51,14 @@ func CheakPosition(var type: String):
 	Type.position.x=positionX
 	Type.position.y=positionY
 
+func GetDeaD()->bool:
+	var metka = false
+	if (Type as Node2D):
+		if (Type.has_method("Dead") ):
+			if (Type.Dead()==true):
+				metka=true
+		else:
+			metka = false
+		print("Type ", TypeName, " dont has method Dead")
+	return metka
+	pass

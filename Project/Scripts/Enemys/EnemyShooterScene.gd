@@ -4,6 +4,7 @@ onready var bulletPref = load("res://Scenes/Enemys/EBullet.tscn")
 var dead = false
 signal dead_for_array
 
+
 func _on_GunTimer_timeout():
 	if $EnemyShooter.ready == true:
 		var bullet = bulletPref.instance()

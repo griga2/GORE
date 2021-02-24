@@ -3,11 +3,12 @@ export (PackedScene) var bulletPref
 #var is_eaten = false
 
 var dead
-
+signal dead_for_array
 
 func _on_AnimationPlayer_animation_finished(anim):
 	if anim == "explosion":
 		EENEMYOBSERVER.enemyPower-=150
+		emit_signal("dead_for_array")
 		queue_free()
 
 

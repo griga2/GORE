@@ -30,9 +30,11 @@ func DebugSpawnMobs():
 	EnemyList.append(EnemyClass.new("Explosive", explosiveEnemyPrefab.instance()))
 	DeliteEnemy()
 	for enemy in EnemyList:
+#		if(enemy.is_in_group("Enemys")!=true):
 			add_child(enemy.Type)
-			enemy.Type.add_to_group("Enemys")
-	
+			enemy.Type.connect("dead_for_array", self, "EnemyIsDead")
+#			enemy.Type.add_to_group("Enemys")
+
 
 func NeedAddNewMob() -> String:
 	var Metka = String("Func not work")
@@ -70,9 +72,9 @@ func AddRandomMobs():
 		1:
 			EnemyList.append(EnemyClass.new("Shooter", shooterEnemyPrefab.instance()))
 		2:
-			EnemyList.append(EnemyClass.new("Explosiver", explosiveEnemyPrefab.instance()))
+			EnemyList.append(EnemyClass.new("Shooter", explosiveEnemyPrefab.instance()))
 		3:
-			EnemyList.append(EnemyClass.new("Laser", skyShotPrefab.instance()))
+			EnemyList.append(EnemyClass.new("Shooter", skyShotPrefab.instance()))
 		_:
 			pass
 	pass
@@ -87,19 +89,13 @@ func _on_ExplosiveTimer_timeout():
 	pass
 
 func DeliteEnemy():
-	var metka=0
+	var metka = 0
 	for enemy in EnemyList:
-		if(enemy.GetDeaD()==true):
+		if(enemy.has_method("GetDead")):
 			EnemyList.remove(metka)
+		else:
+			pass
 		metka+=1
-		
-#	var metka = 0
-#	for enemy in EnemyList:
-#		if(enemy.has_method("GetDead")):
-#			EnemyList.remove(metka)
-#		else:
-#			pass
-#		metka+=1
 
 func EnemyIsDead(enemy):
 	print("enemyolo")

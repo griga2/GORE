@@ -14,7 +14,7 @@ func _on_GunTimer_timeout():
 		add_child(bullet)
 		bullet.global_position = $EnemyShooter.current_hand.get_node("ShootPos").global_position
 		bullet._activate()
-		#$ShootSound.play()
+		$ShootSound2.play()
 
 
 func _on_AnimationPlayer_animation_finished(anim):

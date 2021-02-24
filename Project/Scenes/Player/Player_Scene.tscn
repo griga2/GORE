@@ -7,7 +7,7 @@
 [ext_resource path="res://Scenes/Player/Mouse.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Textures/Player/health.png" type="Texture" id=6]
 [ext_resource path="res://Textures/Player/Player_dead.png" type="Texture" id=7]
-[ext_resource path="res://Sounds&Music/Shoot.ogg" type="AudioStream" id=9]
+[ext_resource path="res://Sounds&Music/sounds/Shoot.ogg" type="AudioStream" id=9]
 [ext_resource path="res://Textures/Player/Player_dash.png" type="Texture" id=10]
 [ext_resource path="res://Recources/Dus_Particles1.tres" type="Material" id=11]
 [ext_resource path="res://Textures/Things/dust.png" type="Texture" id=12]
@@ -1046,7 +1046,7 @@ position = Vector2( -54, -18 )
 
 [node name="ShootSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 9 )
-volume_db = -17.0
+volume_db = -10.0
 [connection signal="timeout" from="GunTimer" to="." method="Gun_Timer_finished"]
 [connection signal="timeout" from="Player/HealthTimer" to="Player" method="HealthTimer_timeout"]
 [connection signal="area_entered" from="Player/DetectArea" to="Player" method="_DetectArea_area_entered"]

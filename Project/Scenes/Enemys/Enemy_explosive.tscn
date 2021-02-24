@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=2]
+[gd_scene load_steps=29 format=2]
 
 [ext_resource path="res://Textures/Enemys/Enemy_explosive.png" type="Texture" id=1]
 [ext_resource path="res://Scripts/Enemys/EnemyExplosive.gd" type="Script" id=2]
@@ -7,6 +7,7 @@
 [ext_resource path="res://Textures/Things/dust 2.png" type="Texture" id=5]
 [ext_resource path="res://Textures/Things/Big_explosion.png" type="Texture" id=6]
 [ext_resource path="res://Textures/Things/circle 4x4.png" type="Texture" id=7]
+[ext_resource path="res://Sounds&Music/sounds/Enemy_explosion.ogg" type="AudioStream" id=8]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 0, 0 )
@@ -155,6 +156,18 @@ tracks/5/keys = {
 "transitions": PoolRealArray( 1 ),
 "update": 1,
 "values": [ true ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("../Expl_Sound:playing")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0, 0.95 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
 }
 
 [sub_resource type="Animation" id=17]
@@ -393,11 +406,11 @@ scale_amount_random = 1.0
 color_ramp = SubResource( 6 )
 
 [node name="Body" type="Sprite" parent="EnemyExplosive"]
-scale = Vector2( 7, 7 )
+position = Vector2( 0, -500 )
+scale = Vector2( 2, 5 )
 z_index = -1
 texture = ExtResource( 1 )
 hframes = 4
-frame = 2
 
 [node name="Explosion" type="Sprite" parent="EnemyExplosive"]
 scale = Vector2( 1e-05, 1e-05 )
@@ -439,6 +452,10 @@ anims/spawn = SubResource( 17 )
 anims/stay = SubResource( 18 )
 anims/ticking = SubResource( 19 )
 anims/walk = SubResource( 20 )
+
+[node name="Expl_Sound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 8 )
+volume_db = 10.0
 [connection signal="area_entered" from="EnemyExplosive/DetectArea" to="EnemyExplosive" method="_DetectArea_area_entered"]
-[connection signal="animation_finished" from="EnemyExplosive/AnimationPlayer" to="EnemyExplosive" method="_on_AnimationPlayer_animation_finished"]
 [connection signal="animation_finished" from="EnemyExplosive/AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]
+[connection signal="animation_finished" from="EnemyExplosive/AnimationPlayer" to="EnemyExplosive" method="_on_AnimationPlayer_animation_finished"]

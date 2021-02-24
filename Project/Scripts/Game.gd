@@ -1,15 +1,15 @@
 extends Node2D
 
 var MaxPowerBank = 1500
-
 var NeedSpawnShooter = 4
 var NeedSpawnExplosive = 3
 var NeedSpawnLaser = 5
 
 var EnemyList: Array
+var EnemyListToSpawnNow: Array
 
 onready var shooterEnemyPrefab = load("res://Scenes/Enemys/Enemy_shooter.tscn")
-onready var skyShotPrefab = load("res://Scenes/Enemys/SkyShoot.tscn")
+onready var laserEnemyPrefab = load("res://Scenes/Enemys/SkyShoot.tscn")
 onready var explosiveEnemyPrefab = load("res://Scenes/Enemys/Enemy_explosive.tscn")
 
 
@@ -20,21 +20,34 @@ func _ready():
 
 
 func _on_EnemyTimer_timeout():
-	DeliteEnemy()
 	AddRandomMobs()
 	DebugSpawnMobs()
+	for enemy in EnemyListToSpawnNow:
+		EnemyList.append(enemy)
+		add_child(enemy.Type)
+	EnemyListToSpawnNow.clear()
 	
 func DebugSpawnMobs():
-	EnemyList.append(EnemyClass.new("Shooter",shooterEnemyPrefab.instance()))
-	EnemyList.append(EnemyClass.new("Laser",skyShotPrefab.instance()))
-	EnemyList.append(EnemyClass.new("Explosive", explosiveEnemyPrefab.instance()))
-	DeliteEnemy()
-	for enemy in EnemyList:
-#		if(enemy.is_in_group("Enemys")!=true):
-			add_child(enemy.Type)
-			enemy.Type.connect("dead_for_array", self, "EnemyIsDead")
-#			enemy.Type.add_to_group("Enemys")
+	SpawnMobsUnitarFunc("Shooter")
+	SpawnMobsUnitarFunc("Laser")
+	SpawnMobsUnitarFunc("Explosive")
 
+func SpawnMobsUnitarFunc(var Name):
+	var enemy
+	match(Name):
+
+		"Shooter":
+			enemy = EnemyClass.new("Shooter",shooterEnemyPrefab.instance())
+			enemy.connect("SignalDead", self, "DeliteEnemy")
+		"Laser":
+			enemy = EnemyClass.new("Laser",laserEnemyPrefab.instance())
+			enemy.connect("SignalDead", self, "DeliteEnemy")
+		"Explosive":
+			enemy = EnemyClass.new("Explosive",shooterEnemyPrefab.instance())
+			enemy.connect("SignalDead", self, "DeliteEnemy")
+		_:
+			pass
+	EnemyListToSpawnNow.append(enemy)
 
 func NeedAddNewMob() -> String:
 	var Metka = String("Func not work")
@@ -70,11 +83,11 @@ func AddRandomMobs():
 	var rand = randi()%2+1
 	match rand:
 		1:
-			EnemyList.append(EnemyClass.new("Shooter", shooterEnemyPrefab.instance()))
+			EnemyListToSpawnNow.append(EnemyClass.new("Shooter", shooterEnemyPrefab.instance()))
 		2:
-			EnemyList.append(EnemyClass.new("Shooter", explosiveEnemyPrefab.instance()))
+			EnemyListToSpawnNow.append(EnemyClass.new("Explosiver", explosiveEnemyPrefab.instance()))
 		3:
-			EnemyList.append(EnemyClass.new("Shooter", skyShotPrefab.instance()))
+			EnemyListToSpawnNow.append(EnemyClass.new("Laser", laserEnemyPrefab.instance()))
 		_:
 			pass
 	pass
@@ -88,15 +101,25 @@ func _on_LasersTimer_timeout():
 func _on_ExplosiveTimer_timeout():
 	pass
 
-func DeliteEnemy():
-	var metka = 0
+func DeliteEnemy(ID):
+	
+	var metkaDeliteEnemy = 0
+	
 	for enemy in EnemyList:
-		if(enemy.has_method("GetDead")):
-			EnemyList.remove(metka)
+		if(enemy.EnemyID!=ID):
+			metkaDeliteEnemy+=1
 		else:
-			pass
-		metka+=1
-
+			break
+	EnemyList.remove(metkaDeliteEnemy)
+#	var metka = 0
+#	for enemy in EnemyList:
+#		if(enemy.has_method("GetDead")):
+#			EnemyList.remove(metka)
+#		else:
+#			pass
+#		metka+=1
+	pass
+	
 func EnemyIsDead(enemy):
 	print("enemyolo")
 	pass

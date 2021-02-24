@@ -224,7 +224,9 @@ func Dead(area):
 	$Player_dead.global_rotation_degrees = area.global_rotation_degrees + 45
 	$PlayerAnim.play("dead")
 	GLOBAL.PlayerDead = true
+
 	INTERFACE.Show_text("DEAD", "[R]", false)
+
 
 
 func HealthTimer_timeout():

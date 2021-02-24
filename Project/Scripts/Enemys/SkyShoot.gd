@@ -1,7 +1,5 @@
 extends KinematicBody2D
 
-signal dead_for_array
-
 func _process(delta):
 	Moving(delta)
 func _ready():
@@ -15,7 +13,6 @@ func AnimPlayer_finished(anim_name):
 		$AnimPlayer.play("end")
 	if anim_name == "end":
 		EENEMYOBSERVER.enemyPower-=50
-		emit_signal("dead_for_array")
 		queue_free()
 
 func AddPower() -> int:

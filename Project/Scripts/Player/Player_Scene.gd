@@ -38,7 +38,5 @@ func Spawn_Bullet():
 		add_child(bullet)
 		bullet.global_position = $Player.current_hand.get_node("ShootPos").global_position
 		bullet._activate()
-#		$ShootSound.play()
-
-
+		$ShootSound.play()
 

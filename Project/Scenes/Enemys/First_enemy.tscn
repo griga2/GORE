@@ -6,12 +6,6 @@
 [ext_resource path="res://Scenes/Enemys/EBullet.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Textures/Enemys/Shooting_Enemy_dead.png" type="Texture" id=5]
 
-
-
-
-
-
-
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 0, 0 )
 
@@ -390,7 +384,9 @@ __meta__ = {
 [node name="HandPos" type="Position2D" parent="Enemy"]
 position = Vector2( 0, -7 )
 
-[node name="DetectArea" type="Area2D" parent="Enemy"]
+[node name="DetectArea" type="Area2D" parent="Enemy" groups=[
+"Enemy_detect_area",
+]]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Enemy/DetectArea"]
 shape = SubResource( 2 )
@@ -505,5 +501,5 @@ anims/walk = SubResource( 14 )
 [connection signal="timeout" from="GunTimer" to="." method="_on_GunTimer_timeout"]
 [connection signal="eaten" from="Enemy" to="." method="Eaten"]
 [connection signal="area_entered" from="Enemy/DetectArea" to="Enemy" method="_DetectArea_area_entered"]
-[connection signal="animation_finished" from="Enemy/AnimationPlayer" to="Enemy" method="_on_AnimationPlayer_animation_finished"]
 [connection signal="animation_finished" from="Enemy/AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]
+[connection signal="animation_finished" from="Enemy/AnimationPlayer" to="Enemy" method="_on_AnimationPlayer_animation_finished"]

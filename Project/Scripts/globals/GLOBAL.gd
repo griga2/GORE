@@ -13,7 +13,7 @@ var EnemyID = 0
 func _input(event):
 	if event.is_action_released("restart") :#and PlayerHP == 0
 		get_tree().reload_current_scene()
-		CAMERA.get_node("TEXT").Hide_text()
+		INTERFACE.Hide_text()
 		PlayerHP = 3
 		Shooting = false 
 	if event.is_action_released("ui_cancel"):

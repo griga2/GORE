@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/enemy_shot2.ogg-6872557eba61ee42bcbd2b066523f849.oggstr"
+
+[deps]
+
+source_file="res://Sounds&Music/sounds/enemy_shot2.ogg"
+dest_files=[ "res://.import/enemy_shot2.ogg-6872557eba61ee42bcbd2b066523f849.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

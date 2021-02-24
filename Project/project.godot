@@ -26,10 +26,11 @@ config/icon="res://icon.png"
 
 [autoload]
 
-GLOBAL="*res://Scenes/GLOBAL.tscn"
-MUSIC="*res://Scenes/MUSIC.tscn"
+GLOBAL="*res://Scenes/globals/GLOBAL.tscn"
+MUSIC="*res://Scenes/globals/MUSIC.tscn"
 EENEMYOBSERVER="*res://Scripts/ENEMYOBSERVER.gd"
 CAMERA="*res://Scenes/Player/CAMERA.tscn"
+INTERFACE="*res://Scenes/globals/INTERFACE.tscn"
 
 [display]
 
@@ -84,6 +85,11 @@ dash={
 StopCamera={
 "deadzone": 0.5,
 "events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":79,"unicode":0,"echo":false,"script":null)
+ ]
+}
+HideFps={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":80,"unicode":0,"echo":false,"script":null)
  ]
 }
 

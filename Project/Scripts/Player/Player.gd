@@ -2,7 +2,7 @@ extends KinematicBody2D
 var hands_script = load("res://Scripts/Hand_Script.gd") #ссылка класс руки
 var player_hands = hands_script.new()#подключение класса руки
 var MOVE_SPEED = 300 #250
-var DASH_SPEED = 675 #500
+var DASH_SPEED = 800 #500
 var can_damage = true #можно ли нанести урон
 onready var current_hand = $PBodyRight/PHand1
 var ready = false
@@ -213,7 +213,7 @@ func _DetectArea_area_entered(area):
 		if area.is_in_group("Enemy_bullet"):
 			Damage(1, area) #GLOBAL.PlayerHP == 3 or 
 		if area.is_in_group("Explosion"):
-			Damage(2, area)
+			Damage(1, area)
 		if GLOBAL.PlayerHP < 1:
 			Dead(area)
 	elif area.is_in_group("Gun"):
@@ -224,8 +224,9 @@ func Dead(area):
 	$Player_dead.global_rotation_degrees = area.global_rotation_degrees + 45
 	$PlayerAnim.play("dead")
 	GLOBAL.PlayerDead = true
-	CAMERA.get_node("TEXT").Show_text("DEAD", "[R]", false)
-	
+
+	INTERFACE.Show_text("DEAD", "[R]", false)
+
 
 
 func HealthTimer_timeout():

@@ -6,11 +6,8 @@
 [node name="Game" type="Node2D"]
 script = ExtResource( 2 )
 
-[node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2( 539.678, 359.515 )
-
 [node name="Player_Sene" parent="." instance=ExtResource( 1 )]
-position = Vector2( 538.807, -153.515 )
+position = Vector2( 564.205, 221.112 )
 
 [node name="EnemyTimer" type="Timer" parent="."]
 autostart = true
@@ -20,8 +17,6 @@ wait_time = 3.0
 
 [node name="ExplosiveTimer" type="Timer" parent="."]
 wait_time = 8.0
-
-[node name="Enemy" type="Node2D" parent="."]
 [connection signal="timeout" from="EnemyTimer" to="." method="_on_EnemyTimer_timeout"]
 [connection signal="timeout" from="LasersTimer" to="." method="_on_LasersTimer_timeout"]
 [connection signal="timeout" from="ExplosiveTimer" to="." method="_on_ExplosiveTimer_timeout"]

@@ -20,6 +20,7 @@ func _ready():
 
 
 func _on_EnemyTimer_timeout():
+
 	AddRandomMobs()
 	DebugSpawnMobs()
 	for enemy in EnemyListToSpawnNow:

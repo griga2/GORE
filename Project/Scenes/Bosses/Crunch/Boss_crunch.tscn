@@ -9,16 +9,16 @@ resource_name = "Качание"
 length = 4.0
 loop = true
 tracks/0/type = "value"
-tracks/0/path = NodePath("AnimationPlayer/First Boss Eblo:position")
+tracks/0/path = NodePath("AnimationPlayer/First Boss Eblo:offset")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
 "times": PoolRealArray( 0, 2 ),
-"transitions": PoolRealArray( 1, 1.10957 ),
+"transitions": PoolRealArray( 1, 1 ),
 "update": 0,
-"values": [ Vector2( 526.577, 148.725 ), Vector2( 533.895, 148.725 ) ]
+"values": [ Vector2( -0.8, 0 ), Vector2( 0.8, 0 ) ]
 }
 
 [sub_resource type="ImageTexture" id=2]
@@ -31,10 +31,11 @@ tracks/0/keys = {
 "anims/Качание" = SubResource( 1 )
 
 [node name="First Boss Eblo" type="Sprite" parent="BossBody/AnimationPlayer"]
-position = Vector2( 526.577, 148.725 )
+position = Vector2( 529.25, 150 )
 scale = Vector2( 2.37555, 2.22771 )
 z_index = 1
 texture = ExtResource( 3 )
+offset = Vector2( 0.73, 0 )
 
 [node name="Light2D" type="Light2D" parent="BossBody/AnimationPlayer/First Boss Eblo"]
 position = Vector2( -17.0811, 0 )

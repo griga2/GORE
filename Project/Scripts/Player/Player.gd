@@ -157,8 +157,11 @@ func Mouse_looking():
 		Detect_mouse_position(look_angle)
 
 func Eat():
-	$Health.frame = GLOBAL.PlayerHP
-	$HealthAnim.play("Show Healts")
+	UserHealth+=30
+	GLOBAL.PlayerHP = UserHealth
+#	$Health.frame = GLOBAL.PlayerHP
+#	$HealthAnim.play("Show Healts")
+	
 
 func Detect_mouse_position(look_angle):
 	#используется для рук с правой стороны
@@ -196,25 +199,27 @@ func Detect_mouse_position(look_angle):
 
 
 func Damage(damage, area):
-	GLOBAL.PlayerHP -= damage
-	if GLOBAL.PlayerHP > 0:
-		$Health.frame = GLOBAL.PlayerHP
-		$Damage_particles.emitting = true
-		$Damage_particles.global_rotation = area.global_rotation
-	else: $Health.frame = 0
-	$HealthAnim.play("Show Healts")
-	$HealthTimer.start()
-	can_damage = false
-
- 
+	UserHealth -= damage
+	if (UserHealth>=100):
+		UserHealth=100
+#	if GLOBAL.PlayerHP > 0:
+#		$Health.frame = GLOBAL.PlayerHP
+#		$Damage_particles.emitting = true
+#		$Damage_particles.global_rotation = area.global_rotation
+#	else: $Health.frame = 0
+#	$HealthAnim.play("Show Healts")
+#	$HealthTimer.start()
+#	can_damage = false
+	GLOBAL.PlayerHP = UserHealth
+	
 func _DetectArea_area_entered(area):
 	print(GLOBAL.PlayerHP)
 	if area.is_in_group("Damage") and GLOBAL.PlayerHP > 0 && can_damage == true: 
 		if area.is_in_group("Enemy_bullet"):
-			Damage(1, area) #GLOBAL.PlayerHP == 3 or 
+			Damage(10, area) #GLOBAL.PlayerHP == 3 or 
 		if area.is_in_group("Explosion"):
-			Damage(1, area)
-		if GLOBAL.PlayerHP < 1:
+			Damage(20, area)
+		if UserHealth<=0 :
 			Dead(area)
 	elif area.is_in_group("Gun"):
 #		GLOBAL.PlayerHaveGun = true сучка неробит 
@@ -241,6 +246,10 @@ func PlayerAnim_anim_finished(anim_name):
 		Dash_x = 0
 		Dash_y = 0
 
+
+var UserHealth = 100
+
+signal ChangeHealth (health)
 
 
 

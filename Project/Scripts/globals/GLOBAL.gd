@@ -2,17 +2,18 @@ extends Node
 var mousPos
 var PlayerPref
 var max_enemys = 5
-var PlayerHP = 3
+var PlayerHP = 100
 var PlayerHaveGun = false
 var PlayerDead = false
 var Shooting = false 
 var ChektchikNotBulletHell = 0 
 
+
 func _input(event):
 	if event.is_action_released("restart") :#and PlayerHP == 0
 		get_tree().reload_current_scene()
 		INTERFACE.Hide_text()
-		PlayerHP = 3
+		PlayerHP = 100
 		Shooting = false 
 	if event.is_action_released("ui_cancel"):
 		get_tree().quit()
@@ -34,8 +35,8 @@ func CheakDistant(EnemyCaord, PlayerCaord):
 	return PlayerCaord.distance_to(EnemyCaord)
 
 func EatEnemy(DeadEnemy):
-	if DeadEnemy.is_eaten == false and PlayerHP < 3 and PlayerHP > 0:
-		PlayerHP += 1
+	if DeadEnemy.is_eaten == false and PlayerHP < 100 and PlayerHP > 0:
+		PlayerHP +=30
 		PlayerPref.Eat()
 		DeadEnemy.Eaten()
 	

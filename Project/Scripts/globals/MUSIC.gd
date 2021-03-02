@@ -6,7 +6,7 @@ func Stop_music(name):
 	get_node(name).stop()
 
 func _ready():
-	$"Coder's pain".play()
+#	$"Coder's pain".play()
 	#Play_music("Intro1")
 	#Stop_all()
 	pass

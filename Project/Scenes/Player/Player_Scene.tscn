@@ -869,7 +869,6 @@ collision_mask = 2
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Player/DetectArea"]
 position = Vector2( 0.420471, -2.10225 )
 shape = SubResource( 1 )
-disabled = true
 
 [node name="KinematicCollision" type="CollisionShape2D" parent="Player"]
 shape = SubResource( 2 )

@@ -15,8 +15,6 @@ func Moving(delta):
 	move_and_slide(MoveVec*speed)
 
 
-func _process(delta):
-	Moving(delta)
 func _ready():
 	$AnimPlayer.play("ready")
 
@@ -34,9 +32,3 @@ func AnimPlayer_finished(anim_name):
 func AddPower() -> int:
 	return 50
 	
-var speed = 300
-
-func Moving(delta):
-	var MoveVec = GLOBAL.PlayerPref.global_position - global_position
-	MoveVec = MoveVec.normalized()
-	move_and_slide(MoveVec*speed)

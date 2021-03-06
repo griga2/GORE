@@ -5,6 +5,11 @@ var NeedSpawnShooter = 4
 var NeedSpawnExplosive = 3
 var NeedSpawnLaser = 5
 
+var MetkaFromRestartSpawnAfterPereriv: bool = false
+
+
+var HowWaveWasSpawn = 0 
+var WaveKolv = 5
 var EnemyList: Array
 var EnemyListToSpawnNow: Array
 
@@ -13,20 +18,27 @@ onready var laserEnemyPrefab = load("res://Scenes/Enemys/SkyShoot.tscn")
 onready var explosiveEnemyPrefab = load("res://Scenes/Enemys/Enemy_explosive.tscn")
 
 
+
 func _ready():
 	GLOBAL.PlayerHaveGun = true
 	GLOBAL.PlayerPref.PlayerUpGun()
 	pass
 
-
 func _on_EnemyTimer_timeout():
-
-	AddRandomMobs()
-	DebugSpawnMobs()
+#	AddRandomMobs()
+#	DebugSpawnMobs()
+	CheakFromPereriv()
+	for i in range(0,2):
+		AddRandomMobs()
 	for enemy in EnemyListToSpawnNow:
 		EnemyList.append(enemy)
 		add_child(enemy.Type)
 	EnemyListToSpawnNow.clear()
+	HowWaveWasSpawn+=1
+	
+	if (MetkaFromRestartSpawnAfterPereriv==true):
+		$EnemyTimer.wait_time=1.5
+		MetkaFromRestartSpawnAfterPereriv=false
 	
 func DebugSpawnMobs():
 	SpawnMobsUnitarFunc("Shooter")
@@ -36,7 +48,6 @@ func DebugSpawnMobs():
 func SpawnMobsUnitarFunc(var Name):
 	var enemy
 	match(Name):
-
 		"Shooter":
 			enemy = EnemyClass.new("Shooter",shooterEnemyPrefab.instance())
 			enemy.connect("SignalDead", self, "DeliteEnemy")
@@ -86,7 +97,7 @@ func AddRandomMobs():
 		1:
 			EnemyListToSpawnNow.append(EnemyClass.new("Shooter", shooterEnemyPrefab.instance()))
 		2:
-			EnemyListToSpawnNow.append(EnemyClass.new("Explosiver", explosiveEnemyPrefab.instance()))
+			EnemyListToSpawnNow.append(EnemyClass.new("Explosive", explosiveEnemyPrefab.instance()))
 		3:
 			EnemyListToSpawnNow.append(EnemyClass.new("Laser", laserEnemyPrefab.instance()))
 		_:
@@ -103,24 +114,28 @@ func _on_ExplosiveTimer_timeout():
 	pass
 
 func DeliteEnemy(ID):
-	
-	var metkaDeliteEnemy = 0
-	
+	var metkaDeliteEnemy = 0	
 	for enemy in EnemyList:
 		if(enemy.EnemyID!=ID):
 			metkaDeliteEnemy+=1
 		else:
 			break
 	EnemyList.remove(metkaDeliteEnemy)
-#	var metka = 0
-#	for enemy in EnemyList:
-#		if(enemy.has_method("GetDead")):
-#			EnemyList.remove(metka)
-#		else:
-#			pass
-#		metka+=1
 	pass
 	
 func EnemyIsDead(enemy):
 	print("enemyolo")
+	pass
+
+
+func _on_DiffinsivTimer_timeout():
+	
+	pass
+	
+func CheakFromPereriv():
+	if (HowWaveWasSpawn>=WaveKolv):
+		$EnemyTimer.wait_time=30
+		print("func CheakFromPereriv good finished")
+		HowWaveWasSpawn=0
+		MetkaFromRestartSpawnAfterPereriv=true
 	pass

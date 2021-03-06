@@ -1,13 +1,13 @@
 [gd_scene load_steps=9 format=2]
 
-[ext_resource path="res://Sounds&Music/Intro2.ogg" type="AudioStream" id=1]
-[ext_resource path="res://Sounds&Music/Intro3.ogg" type="AudioStream" id=2]
-[ext_resource path="res://Sounds&Music/Rage1.ogg" type="AudioStream" id=3]
-[ext_resource path="res://Sounds&Music/Rage2.ogg" type="AudioStream" id=4]
+[ext_resource path="res://Sounds&Music/Old Music/Intro2.ogg" type="AudioStream" id=1]
+[ext_resource path="res://Sounds&Music/Old Music/Intro3.ogg" type="AudioStream" id=2]
+[ext_resource path="res://Sounds&Music/Old Music/Rage1.ogg" type="AudioStream" id=3]
+[ext_resource path="res://Sounds&Music/Old Music/Rage2.ogg" type="AudioStream" id=4]
 [ext_resource path="res://Scripts/globals/MUSIC.gd" type="Script" id=5]
-[ext_resource path="res://Sounds&Music/Bass.ogg" type="AudioStream" id=6]
-[ext_resource path="res://Sounds&Music/Track.ogg" type="AudioStream" id=7]
-[ext_resource path="res://Sounds&Music/Screaming Bros - Coder's pain.ogg" type="AudioStream" id=8]
+[ext_resource path="res://Sounds&Music/Old Music/Bass.ogg" type="AudioStream" id=6]
+[ext_resource path="res://Sounds&Music/Music/Track.ogg" type="AudioStream" id=7]
+[ext_resource path="res://Sounds&Music/Music/Screaming Bros - Coder's pain.ogg" type="AudioStream" id=8]
 
 [node name="MUSIC" type="Node2D"]
 script = ExtResource( 5 )

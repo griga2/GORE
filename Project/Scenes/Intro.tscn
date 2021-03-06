@@ -60,7 +60,7 @@ tracks/0/keys = {
 script = ExtResource( 3 )
 
 [node name="PlayerScene" parent="." instance=ExtResource( 1 )]
-position = Vector2( 544.757, 274.377 )
+position = Vector2( 530.757, 380.377 )
 
 [node name="Gun" type="Node2D" parent="."]
 position = Vector2( 539, 257 )

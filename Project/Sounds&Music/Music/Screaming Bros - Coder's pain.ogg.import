@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/Screaming Bros - Coder's pain.ogg-a785952e6fba38ae8ea0343c8de1a356.oggstr"
+
+[deps]
+
+source_file="res://Sounds&Music/Music/Screaming Bros - Coder's pain.ogg"
+dest_files=[ "res://.import/Screaming Bros - Coder's pain.ogg-a785952e6fba38ae8ea0343c8de1a356.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

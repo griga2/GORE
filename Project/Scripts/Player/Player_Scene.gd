@@ -33,7 +33,7 @@ func Start_Gun_Timer():
 	pass
 
 func Spawn_Bullet():
-	if GLOBAL.PlayerDead == false && $Player.mazafakaDaash == false:
+	if GLOBAL.PlayerDead == false && $Player.mazafakaDaash == false && GLOBAL.PlayerHaveGun == true:
 		var bullet = bulletPref.instance()
 		add_child(bullet)
 		bullet.global_position = $Player.current_hand.get_node("ShootPos").global_position

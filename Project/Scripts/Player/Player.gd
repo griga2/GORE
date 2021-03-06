@@ -216,6 +216,7 @@ func _DetectArea_area_entered(area):
 			Damage(1, area)
 		if GLOBAL.PlayerHP < 1:
 			Dead(area)
+		CAMERA.start(0.2, 20, 8)
 	elif area.is_in_group("Gun"):
 #		GLOBAL.PlayerHaveGun = true сучка неробит 
 		PlayerUpGun()
@@ -224,7 +225,6 @@ func Dead(area):
 	$Player_dead.global_rotation_degrees = area.global_rotation_degrees + 45
 	$PlayerAnim.play("dead")
 	GLOBAL.PlayerDead = true
-
 	INTERFACE.Show_text("DEAD", "[R]", false)
 
 

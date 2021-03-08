@@ -1,7 +1,8 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://Recources/JetBrainsMono-ExtraBold.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://Scripts/globals/INTERFACE.gd" type="Script" id=2]
+[ext_resource path="res://Scripts/globals/HP_Bar.gd" type="Script" id=3]
 
 [sub_resource type="DynamicFont" id=1]
 size = 31
@@ -134,10 +135,14 @@ tracks/2/keys = {
 [node name="INTERFACE" type="CanvasLayer"]
 script = ExtResource( 2 )
 
+[node name="HP_Bar" type="Node2D" parent="."]
+position = Vector2( 271, 183 )
+script = ExtResource( 3 )
+
 [node name="MONITORING" type="Control" parent="."]
-visible = false
+margin_top = 66.0
 margin_right = 294.0
-margin_bottom = 40.0
+margin_bottom = 106.0
 __meta__ = {
 "_edit_use_anchors_": false
 }

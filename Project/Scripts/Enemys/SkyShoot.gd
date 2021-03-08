@@ -14,11 +14,6 @@ func Moving(delta):
 	MoveVec = MoveVec.normalized()
 	move_and_slide(MoveVec*speed)
 
-<<<<<<< HEAD
-
-=======
-	
->>>>>>> main
 func _ready():
 	$AnimPlayer.play("ready")
 
@@ -34,8 +29,3 @@ func AnimPlayer_finished(anim_name):
 
 func AddPower() -> int:
 	return 50
-<<<<<<< HEAD
-	
-=======
-
->>>>>>> main

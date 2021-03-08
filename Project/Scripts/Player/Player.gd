@@ -12,6 +12,7 @@ var move_vect = Vector2()
 func _ready():
 	$DashDelayTimer.stop()
 	GLOBAL.PlayerDead = false
+	GLOBAL.PlayerHaveGun = true
 	if GLOBAL.PlayerHaveGun == false:
 		PlayerNoGun()
 	else:PlayerUpGun()
@@ -99,7 +100,7 @@ func MovingDash(delta):
 	var dash_vect = Vector2(0, 0)
 	dash_vect.x = Dash_x
 	dash_vect.y = Dash_y
-	
+	CAMERA.Camera_dash(dash_vect)
 	if mazafakaDaash == true:
 		if Dash_x == -1:
 			$PlayerAnim.play("DashL")
@@ -111,6 +112,8 @@ func MovingDash(delta):
 	
 	dash_vect = dash_vect.normalized()
 	move_and_collide(dash_vect * DASH_SPEED * delta)
+	
+	
 
 
 func Hands_showing_and_rotate():

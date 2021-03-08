@@ -28,31 +28,12 @@ func reset():
 	$Tween.interpolate_property(camera, "offset", camera.offset, Vector2(), $Frequency.wait_time, TRANS, EASE)
 	$Tween.start()
 
-
 func _on_Frequency_timeout():
 	new_shake()
 
 func _on_Duration_timeout():
 	reset()
 	$Frequency.stop()
-
-
-#-------ДЕШ КАМЕРЫ--------
-func Camera_dash(vector = Vector2()):
-	var amplitude = -100
-	var time = 1
-	$DashTimer.start()
-	
-	vector = vector.normalized() * amplitude
-	$Tween.interpolate_property(self, "offset", camera.offset, vector, time, Tween.TRANS_QUART, Tween.EASE_OUT)
-	$Tween.start()
-	pass
-
-func _on_DashTimer_timeout():
-	$Tween.interpolate_property(camera, "offset", camera.offset, Vector2(), 1, Tween.TRANS_SINE, Tween.EASE_OUT)
-	$Tween.start()
-
-
 
 #--------СЛЕЖЕНИЕ ЗА ИГРОКОМ-----
 var pointOnPlayer = true
@@ -73,3 +54,21 @@ func _process(delta):
 	if pointOnPlayer == true:
 		global_position = GLOBAL.PlayerPref.global_position
 	pass
+
+
+#-------ДЕШ КАМЕРЫ--------
+func Camera_dash(vector = Vector2()):
+	var amplitude = 30
+	var time = 1
+#	$DashTimer.wait_time = time
+	$DashTimer.start()
+	
+	
+	vector = vector.normalized() * amplitude
+	$Tween.interpolate_property(self, "offset", camera.offset, vector, time, Tween.TRANS_CIRC, Tween.EASE_OUT)
+	$Tween.start()
+	pass
+
+func _on_DashTimer_timeout():
+	$Tween.interpolate_property(camera, "offset", camera.offset, Vector2(), $Frequency.wait_time, TRANS, Tween.EASE_OUT)
+	$Tween.start()

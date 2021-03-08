@@ -8,6 +8,7 @@ var PlayerDead = false
 var Shooting = false 
 var ChektchikNotBulletHell = 0 
 
+var EnemyID = 0
 
 func _input(event):
 	if event.is_action_released("restart") :#and PlayerHP == 0

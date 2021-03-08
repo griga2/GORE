@@ -1,15 +1,22 @@
 extends Node2D
 
-var MaxPowerBank = 1500
+var DefficaltysiveLevel = 1
+
+var MaxPowerBank = DefficaltysiveLevel * (50*2 + 100*2 + 150)
+
 var NeedSpawnShooter = 4
 var NeedSpawnExplosive = 3
 var NeedSpawnLaser = 5
+var NeedSpawnRandomMobs: int = 0 
+
+var PowerNow = 0
 
 var MetkaFromRestartSpawnAfterPereriv: bool = false
 
 
 var HowWaveWasSpawn = 0 
 var WaveKolv = 5
+
 var EnemyList: Array
 var EnemyListToSpawnNow: Array
 
@@ -17,24 +24,29 @@ onready var shooterEnemyPrefab = load("res://Scenes/Enemys/Enemy_shooter.tscn")
 onready var laserEnemyPrefab = load("res://Scenes/Enemys/SkyShoot.tscn")
 onready var explosiveEnemyPrefab = load("res://Scenes/Enemys/Enemy_explosive.tscn")
 
-
-
 func _ready():
 	GLOBAL.PlayerHaveGun = true
 	GLOBAL.PlayerPref.PlayerUpGun()
+	DebugSpawnMobs()
 	pass
 
 func _on_EnemyTimer_timeout():
-#	AddRandomMobs()
-#	DebugSpawnMobs()
 	CheakFromPereriv()
-	for i in range(0,2):
-		AddRandomMobs()
+	
+	SpawnDefoltPackMibs()
+	AddRandomMobs()
+	
 	for enemy in EnemyListToSpawnNow:
 		EnemyList.append(enemy)
 		add_child(enemy.Type)
+		PowerNow+=enemy.Type.AddPower()
+		
+	NeedAddNewMob()
+	
 	EnemyListToSpawnNow.clear()
+	
 	HowWaveWasSpawn+=1
+	print("HowWaveWasSpawn =", HowWaveWasSpawn)
 	
 	if (MetkaFromRestartSpawnAfterPereriv==true):
 		$EnemyTimer.wait_time=1.5
@@ -63,9 +75,7 @@ func SpawnMobsUnitarFunc(var Name):
 
 func NeedAddNewMob() -> String:
 	var Metka = String("Func not work")
-	var PowerNow = 0
-	for enemy in get_tree().get_nodes_in_group("enemys"):
-		PowerNow+=enemy.AddPower()
+
 	if(MaxPowerBank/4 >= PowerNow):
 		Metka = "More mobs"
 	elif(MaxPowerBank/4 < PowerNow && MaxPowerBank/4*3 >= PowerNow):
@@ -74,6 +84,7 @@ func NeedAddNewMob() -> String:
 		Metka = "A less mobs"
 	if (Metka == "" || Metka == "Func not work"):
 		print ("Function NeedAddNewMob is not working correct")
+	PowerNow=0
 	return Metka
 
 func CheakDefanceLevel(var NeedSpawnValue ):
@@ -82,35 +93,30 @@ func CheakDefanceLevel(var NeedSpawnValue ):
 	var HowWasAdd = 0
 	match NeedSpawnValue:
 		"More mobs":
+			HowWasAdd=randi()%4+2
 			print ("In function CheakDefenceLavel using block More mobs,", HowWasAdd, " was add on MaxPowerBank")
 		"A few mobs":
+			HowWasAdd=randi()%2+1
 			print ("In function CheakDefenceLavel using block A few mobs,", HowWasAdd, " was add on MaxPowerBank")
 		"A less mobs":
 			print ("In function CheakDefenceLavel using block A less mobs,", HowWasAdd, " was add on MaxPowerBank")
+			if(HowWasAdd>0):HowWasAdd-=1
 		_:
 			print ("In function CheakDefenceLavel somethink break, match use defalt block")
 	pass
 
 func AddRandomMobs():
-	var rand = randi()%2+1
-	match rand:
-		1:
-			EnemyListToSpawnNow.append(EnemyClass.new("Shooter", shooterEnemyPrefab.instance()))
-		2:
-			EnemyListToSpawnNow.append(EnemyClass.new("Explosive", explosiveEnemyPrefab.instance()))
-		3:
-			EnemyListToSpawnNow.append(EnemyClass.new("Laser", laserEnemyPrefab.instance()))
-		_:
-			pass
-	pass
-
-
-func _on_LasersTimer_timeout():
-	var enemy = shooterEnemyPrefab
-	add_child(enemy.instance())
-	enemy.connect("dead_for_array", self, "EnemyIsDead")
-
-func _on_ExplosiveTimer_timeout():
+	for i in range(NeedSpawnRandomMobs):
+		var rand = randi()%2+1
+		match rand:
+			1:
+				EnemyListToSpawnNow.append(EnemyClass.new("Shooter", shooterEnemyPrefab.instance()))
+			2:
+				EnemyListToSpawnNow.append(EnemyClass.new("Explosive", explosiveEnemyPrefab.instance()))
+			3:
+				EnemyListToSpawnNow.append(EnemyClass.new("Laser", laserEnemyPrefab.instance()))
+			_:
+				pass
 	pass
 
 func DeliteEnemy(ID):
@@ -122,11 +128,6 @@ func DeliteEnemy(ID):
 			break
 	EnemyList.remove(metkaDeliteEnemy)
 	pass
-	
-func EnemyIsDead(enemy):
-	print("enemyolo")
-	pass
-
 
 func _on_DiffinsivTimer_timeout():
 	
@@ -139,3 +140,8 @@ func CheakFromPereriv():
 		HowWaveWasSpawn=0
 		MetkaFromRestartSpawnAfterPereriv=true
 	pass
+
+func SpawnDefoltPackMibs():
+	SpawnMobsUnitarFunc("Shooter")
+	SpawnMobsUnitarFunc("Laser")
+	SpawnMobsUnitarFunc("Explosive")

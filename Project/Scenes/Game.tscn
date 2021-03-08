@@ -17,6 +17,9 @@ wait_time = 3.0
 
 [node name="ExplosiveTimer" type="Timer" parent="."]
 wait_time = 8.0
+
+[node name="DiffinsivTimer" type="Timer" parent="."]
 [connection signal="timeout" from="EnemyTimer" to="." method="_on_EnemyTimer_timeout"]
 [connection signal="timeout" from="LasersTimer" to="." method="_on_LasersTimer_timeout"]
 [connection signal="timeout" from="ExplosiveTimer" to="." method="_on_ExplosiveTimer_timeout"]
+[connection signal="timeout" from="DiffinsivTimer" to="." method="_on_DiffinsivTimer_timeout"]

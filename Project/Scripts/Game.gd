@@ -13,7 +13,7 @@ var PowerNow = 0
 
 var MetkaFromRestartSpawnAfterPereriv: bool = false
 
-
+var oaoaommmo
 var HowWaveWasSpawn = 0 
 var WaveKolv = 5
 

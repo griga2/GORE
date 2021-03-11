@@ -4,8 +4,7 @@ onready var Text = $TEXT/Text
 onready var TButton = $TEXT/Text/TButton
 onready var TAnimator = $TEXT/TextAnim
 
-
-
+	
 func Show_text(text = "TEXT", button = "", hideIt = true):
 	Text.text = text
 	TButton.text = button
@@ -28,3 +27,4 @@ func _process(delta):
 	fps = Engine.get_frames_per_second()
 	$MONITORING/Counter.text = str(fps)
 	pass
+

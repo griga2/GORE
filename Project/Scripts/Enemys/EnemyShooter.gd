@@ -97,9 +97,9 @@ func _DetectArea_area_entered(area):
 			Dead(area)
 
 func Dead(area):
-
 	$AnimationPlayer.play("dead")
 	$Dead_particles.rotation_degrees = area.global_rotation_degrees
+	$Dead_Sprite.frame = int(rand_range(0, 3))
 	$Dead_Sprite.global_rotation_degrees = area.global_rotation_degrees + 45
 	#$Dead_Particles.global_rotation_degrees = area.global_rotation_degrees
 	var DeadSpeed = 10

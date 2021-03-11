@@ -428,13 +428,16 @@ scale_amount_random = 1.0
 color_ramp = SubResource( 6 )
 
 [node name="Dead_Sprite" type="Sprite" parent="EnemyShooter"]
-modulate = Color( 0.376471, 0, 0, 0 )
+visible = false
 position = Vector2( -9.53674e-07, 1.19209e-07 )
 scale = Vector2( 5, 5 )
 z_index = -1
 texture = ExtResource( 5 )
+hframes = 3
+frame = 2
 
 [node name="PBodyRight" type="Sprite" parent="EnemyShooter"]
+visible = false
 position = Vector2( 0, -500 )
 scale = Vector2( 2, 5 )
 texture = SubResource( 7 )

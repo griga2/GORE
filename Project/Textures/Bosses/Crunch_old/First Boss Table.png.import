@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/First Boss Eblo.png-2f53ef6afc1a359db26710e2288ce2d0.stex"
+path="res://.import/First Boss Table.png-1673016b7df20c5ff82a8bc4425f1371.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Textures/Obsesion/First Boss Eblo.png"
-dest_files=[ "res://.import/First Boss Eblo.png-2f53ef6afc1a359db26710e2288ce2d0.stex" ]
+source_file="res://Textures/Bosses/Crunch_old/First Boss Table.png"
+dest_files=[ "res://.import/First Boss Table.png-1673016b7df20c5ff82a8bc4425f1371.stex" ]
 
 [params]
 

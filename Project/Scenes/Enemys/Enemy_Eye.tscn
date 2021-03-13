@@ -1,0 +1,46 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Textures/Enemys/Enemy_Eye.png" type="Texture" id=1]
+
+[sub_resource type="Animation" id=1]
+resource_name = "Bullets_attac_1"
+tracks/0/type = "value"
+tracks/0/path = NodePath("Enemy_Eye:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ 0, 4, 5, 6 ]
+}
+
+[sub_resource type="Animation" id=2]
+resource_name = "Laser_attac"
+tracks/0/type = "value"
+tracks/0/path = NodePath("Enemy_Eye:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ 0, 1, 2, 3 ]
+}
+
+[node name="Enemy_Eye" type="Node2D"]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/Bullets_attac_1 = SubResource( 1 )
+anims/Laser_attac = SubResource( 2 )
+
+[node name="Enemy_Eye" type="Sprite" parent="."]
+position = Vector2( 667, 318 )
+scale = Vector2( 6, 6 )
+texture = ExtResource( 1 )
+hframes = 7
+frame = 3

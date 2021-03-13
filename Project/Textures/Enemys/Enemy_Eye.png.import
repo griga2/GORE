@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/First Boss1.png-1a8ab4230e663b701abb6c72c621a3d8.stex"
+path="res://.import/Enemy_Eye.png-69bd1db6d791ca0bd2e02801e8d90c6f.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Textures/Obsesion/First Boss1.png"
-dest_files=[ "res://.import/First Boss1.png-1a8ab4230e663b701abb6c72c621a3d8.stex" ]
+source_file="res://Textures/Enemys/Enemy_Eye.png"
+dest_files=[ "res://.import/Enemy_Eye.png-69bd1db6d791ca0bd2e02801e8d90c6f.stex" ]
 
 [params]
 

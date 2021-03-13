@@ -135,11 +135,8 @@ tracks/2/keys = {
 [node name="INTERFACE" type="CanvasLayer"]
 script = ExtResource( 2 )
 
-[node name="HP_Bar" type="Node2D" parent="."]
-position = Vector2( 271, 183 )
-script = ExtResource( 3 )
-
 [node name="MONITORING" type="Control" parent="."]
+visible = false
 margin_top = 66.0
 margin_right = 294.0
 margin_bottom = 106.0
@@ -171,6 +168,7 @@ __meta__ = {
 }
 
 [node name="TEXT" type="Control" parent="."]
+visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 __meta__ = {
@@ -225,3 +223,7 @@ __meta__ = {
 anims/Show = SubResource( 4 )
 "anims/Show and hide" = SubResource( 5 )
 "anims/Show and hide (epeleptic)" = SubResource( 6 )
+
+[node name="HP_Bar" type="Node2D" parent="."]
+position = Vector2( 270, 181 )
+script = ExtResource( 3 )

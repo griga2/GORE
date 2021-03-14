@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Enemy_Eye.png-69bd1db6d791ca0bd2e02801e8d90c6f.stex"
+path="res://.import/romb 1x1 - 5x5.png-68ebcff4754cc54c123d1fb7b43584fe.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Textures/Enemys/Enemy_Eye.png"
-dest_files=[ "res://.import/Enemy_Eye.png-69bd1db6d791ca0bd2e02801e8d90c6f.stex" ]
+source_file="res://Textures/Things/romb 1x1 - 5x5.png"
+dest_files=[ "res://.import/romb 1x1 - 5x5.png-68ebcff4754cc54c123d1fb7b43584fe.stex" ]
 
 [params]
 

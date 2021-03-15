@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/TV_Tabel.png-8c0eb99b0894390a67a36a3af8f58c49.stex"
+path="res://.import/First Boss Eblo.png-f788a6fbc7ebf4fbd11ed5533cad8c93.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Textures/Bosses/Crunch/TV_Tabel.png"
-dest_files=[ "res://.import/TV_Tabel.png-8c0eb99b0894390a67a36a3af8f58c49.stex" ]
+source_file="res://Textures/Bosses/И ЭТО ТОЖЕ БЛЯТЬ НЕ ТРОГАЙ/First Boss Eblo.png"
+dest_files=[ "res://.import/First Boss Eblo.png-f788a6fbc7ebf4fbd11ed5533cad8c93.stex" ]
 
 [params]
 

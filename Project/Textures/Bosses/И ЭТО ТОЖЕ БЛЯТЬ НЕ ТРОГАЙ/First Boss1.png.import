@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/First Boss.png-5c09f8bcdbe26dc3c7986a40555a756e.stex"
+path="res://.import/First Boss1.png-3c321ce216c4d44794714dab37ec3e01.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Textures/Bosses/Crunch_old/First Boss.png"
-dest_files=[ "res://.import/First Boss.png-5c09f8bcdbe26dc3c7986a40555a756e.stex" ]
+source_file="res://Textures/Bosses/И ЭТО ТОЖЕ БЛЯТЬ НЕ ТРОГАЙ/First Boss1.png"
+dest_files=[ "res://.import/First Boss1.png-3c321ce216c4d44794714dab37ec3e01.stex" ]
 
 [params]
 

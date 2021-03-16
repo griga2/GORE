@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/TV.png-160f69cd2a1ce66687c19d8af0808668.stex"
+path="res://.import/TV.png-44473d7009ca068fe8f2741ed2b31d48.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Textures/Bosses/И ЭТО ТОЖЕ БЛЯТЬ НЕ ТРОГАЙ/TV.png"
-dest_files=[ "res://.import/TV.png-160f69cd2a1ce66687c19d8af0808668.stex" ]
+source_file="res://Textures/Bosses/Crunch/TV.png"
+dest_files=[ "res://.import/TV.png-44473d7009ca068fe8f2741ed2b31d48.stex" ]
 
 [params]
 

@@ -7,3 +7,7 @@ func _ready():
 
 func BossCheck():
 	print("XYETA ", BossHP)
+
+func BossDamage(HowDamage):
+	if BossHP >= HowDamage && BossHP >= 0:
+		BossHP -= HowDamage

@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=2]
+[gd_scene load_steps=23 format=2]
 
 [ext_resource path="res://Scenes/Player/Player_Scene.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Textures/Bosses/И ЭТО ТОЖЕ БЛЯТЬ НЕ ТРОГАЙ/TV_head1.png" type="Texture" id=2]
@@ -10,6 +10,7 @@
 [ext_resource path="res://Scenes/Bosses/Obsesion/ObsesionAll.gd" type="Script" id=8]
 [ext_resource path="res://Scenes/Bosses/Obsesion/ObsesionBody.gd" type="Script" id=9]
 [ext_resource path="res://Scenes/Bosses/Obsesion/LatersTimer.gd" type="Script" id=10]
+[ext_resource path="res://Scenes/Bosses/Obsesion/Attack/HitShelf.tscn" type="PackedScene" id=11]
 
 [sub_resource type="RectangleShape2D" id=1]
 
@@ -133,6 +134,9 @@ anims/LatersAnim = SubResource( 2 )
 position = Vector2( 49.8118, 381.493 )
 scale = Vector2( 7.20877, 6.32933 )
 texture = ExtResource( 7 )
+
+[node name="Node2D" parent="LeftWell" instance=ExtResource( 11 )]
+position = Vector2( 217.184, 269.968 )
 
 [node name="LatersTimer" type="Timer" parent="."]
 wait_time = 3.941

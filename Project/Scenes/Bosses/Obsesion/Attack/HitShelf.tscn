@@ -4,7 +4,7 @@
 [ext_resource path="res://Textures/Bosses/И ЭТО ТОЖЕ БЛЯТЬ НЕ ТРОГАЙ/Leaflets.png" type="Texture" id=2]
 [ext_resource path="res://Textures/Bosses/И ЭТО ТОЖЕ БЛЯТЬ НЕ ТРОГАЙ/Polka.png" type="Texture" id=3]
 
-[sub_resource type="Animation" id=1]
+[sub_resource type="Animation" id=10]
 resource_name = "MainHit"
 length = 4.5
 loop = true
@@ -65,7 +65,7 @@ region = Rect2( 66, 0, 22, 27 )
 atlas = ExtResource( 2 )
 region = Rect2( 0, 27, 22, 27 )
 
-[sub_resource type="SpriteFrames" id=10]
+[sub_resource type="SpriteFrames" id=11]
 animations = [ {
 "frames": [ SubResource( 2 ), SubResource( 3 ), SubResource( 4 ), SubResource( 5 ), SubResource( 6 ), SubResource( 7 ), SubResource( 8 ), SubResource( 9 ) ],
 "loop": true,
@@ -76,23 +76,29 @@ animations = [ {
 [node name="Node2D" type="Node2D"]
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-anims/MainHit = SubResource( 1 )
+anims/MainHit = SubResource( 10 )
 
 [node name="Sprite" type="Sprite" parent="AnimationPlayer"]
-position = Vector2( 381.141, 272.923 )
+position = Vector2( 379.189, 263.574 )
 scale = Vector2( 8.72985, 8.72985 )
 texture = ExtResource( 1 )
 __meta__ = {
-"_edit_lock_": true
+"_edit_group_": true
 }
 
 [node name="Sprite2" type="Sprite" parent="AnimationPlayer"]
-position = Vector2( 178.619, 261.626 )
+position = Vector2( 175.252, 267.238 )
 scale = Vector2( 7.65956, 7.65956 )
 texture = ExtResource( 3 )
+__meta__ = {
+"_edit_group_": true
+}
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="AnimationPlayer"]
-position = Vector2( 457.6, 266.867 )
+position = Vector2( 448.914, 255.273 )
 scale = Vector2( 6.66936, 6.66936 )
-frames = SubResource( 10 )
+frames = SubResource( 11 )
 frame = 7
+__meta__ = {
+"_edit_group_": true
+}

@@ -26,6 +26,8 @@ func _Bullet_touched(area):
 		objects_touched += 1
 		if objects_touched >= 8:
 			queue_free()
+	if area.is_in_group("Tentacle"):
+		queue_free()
 	pass
 
 

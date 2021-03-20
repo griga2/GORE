@@ -28,7 +28,7 @@ config/icon="res://icon.png"
 
 GLOBAL="*res://Scenes/globals/GLOBAL.tscn"
 MUSIC="*res://Scenes/globals/MUSIC.tscn"
-CAMERA="*res://Scenes/Player/CAMERA.tscn"
+CAMERA="*res://Scenes/globals/CAMERA.tscn"
 INTERFACE="*res://Scenes/globals/INTERFACE.tscn"
 
 [display]

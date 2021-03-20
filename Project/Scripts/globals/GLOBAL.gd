@@ -4,7 +4,7 @@ var PlayerPref
 var max_enemys = 5
 var PlayerHP = 100
 var PlayerHaveGun = false
-var PlayerDead = false
+var PlayerDead = true
 var Shooting = false 
 var ChektchikNotBulletHell = 0 
 

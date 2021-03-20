@@ -15,7 +15,7 @@
 [ext_resource path="res://Textures/Things/dust 2.png" type="Texture" id=14]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 20.7361, 27.9266 )
+extents = Vector2( 12.2399, 15.0931 )
 
 [sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 0, 0 )
@@ -865,6 +865,7 @@ frame = 3
 [node name="DetectArea" type="Area2D" parent="Player" groups=[
 "Player",
 ]]
+position = Vector2( 0, -1 )
 collision_layer = 2
 collision_mask = 2
 

@@ -14,3 +14,7 @@ func _ready():
 func _on_AnimationPlayer_animation_finished(anim_name):
 	if anim_name == "ready":
 		is_ready = true
+
+
+func _on_DeadTimer_timeout():
+	queue_free()

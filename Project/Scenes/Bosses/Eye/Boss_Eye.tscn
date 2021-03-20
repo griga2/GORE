@@ -5,7 +5,7 @@
 [ext_resource path="res://Textures/Bosses/Eye/effect.png" type="Texture" id=3]
 
 [sub_resource type="Animation" id=1]
-resource_name = "Bullets_attac_1"
+resource_name = "Attack_1"
 step = 0.05
 tracks/0/type = "value"
 tracks/0/path = NodePath("Enemy_Eye:frame")
@@ -29,7 +29,7 @@ tracks/1/keys = {
 "times": PoolRealArray( 0.1, 0.95, 1.5 ),
 "transitions": PoolRealArray( 0.37, 1.23, 1 ),
 "update": 0,
-"values": [ Vector2( 0.5, 0.5 ), Vector2( 2, 2 ), Vector2( 1.8, 1.8 ) ]
+"values": [ Vector2( 0.5, 0.5 ), Vector2( 2.7, 2.7 ), Vector2( 1.8, 1.8 ) ]
 }
 tracks/2/type = "value"
 tracks/2/path = NodePath("Enemy_Eye/effect:frame")
@@ -50,10 +50,10 @@ tracks/3/loop_wrap = true
 tracks/3/imported = false
 tracks/3/enabled = true
 tracks/3/keys = {
-"times": PoolRealArray( 0.05, 0.1, 0.55, 0.85 ),
+"times": PoolRealArray( 0.05, 0.25, 0.55, 0.85 ),
 "transitions": PoolRealArray( 1, 1, 1, 1 ),
 "update": 0,
-"values": [ Color( 0.686275, 0, 0, 1 ), Color( 0.686275, 0, 0, 0.721569 ), Color( 0.686275, 0, 0, 0.623529 ), Color( 0.32549, 0.0784314, 0.0784314, 0 ) ]
+"values": [ Color( 0.686275, 0, 0, 1 ), Color( 0.686275, 0, 0, 0.784314 ), Color( 0.686275, 0, 0, 0.784314 ), Color( 0.32549, 0.0784314, 0.0784314, 0 ) ]
 }
 tracks/4/type = "value"
 tracks/4/path = NodePath("Enemy_Eye/effect:visible")
@@ -68,8 +68,7 @@ tracks/4/keys = {
 "values": [ false, true ]
 }
 
-[sub_resource type="Animation" id=2]
-resource_name = "Laser_attac"
+[sub_resource type="Animation" id=3]
 tracks/0/type = "value"
 tracks/0/path = NodePath("Enemy_Eye:frame")
 tracks/0/interp = 1
@@ -83,8 +82,7 @@ tracks/0/keys = {
 "values": [ 0, 1, 2, 3 ]
 }
 
-[sub_resource type="Animation" id=3]
-resource_name = "Stay"
+[sub_resource type="Animation" id=4]
 length = 0.5
 tracks/0/type = "value"
 tracks/0/path = NodePath("Enemy_Eye:frame")
@@ -100,13 +98,17 @@ tracks/0/keys = {
 }
 
 [node name="Boss_Eye" type="Node2D"]
-position = Vector2( 502, 314 )
+position = Vector2( 508, 314 )
 script = ExtResource( 2 )
+__meta__ = {
+"_edit_group_": true
+}
 
 [node name="Bullet_points" type="Node2D" parent="."]
 position = Vector2( 7, -6 )
 __meta__ = {
-"_edit_group_": true
+"_edit_group_": true,
+"_edit_lock_": true
 }
 
 [node name="Position0" type="Position2D" parent="Bullet_points"]
@@ -134,9 +136,9 @@ position = Vector2( -140, 0 )
 position = Vector2( -110, -110 )
 
 [node name="BodyAnim" type="AnimationPlayer" parent="."]
-anims/Bullets_attac_1 = SubResource( 1 )
-anims/Laser_attac = SubResource( 2 )
-anims/Stay = SubResource( 3 )
+anims/Attack_1 = SubResource( 1 )
+anims/Laser_attac = SubResource( 3 )
+anims/Stay = SubResource( 4 )
 
 [node name="Enemy_Eye" type="Sprite" parent="."]
 scale = Vector2( 4, 4 )
@@ -145,15 +147,18 @@ hframes = 7
 
 [node name="effect" type="Sprite" parent="Enemy_Eye"]
 visible = false
-self_modulate = Color( 0.686275, 0, 0, 0.656209 )
+self_modulate = Color( 0.686275, 0, 0, 1 )
 position = Vector2( 2.25, -19.25 )
-scale = Vector2( 1.53748, 1.53748 )
+scale = Vector2( 0.5, 0.5 )
 texture = ExtResource( 3 )
 hframes = 8
-frame = 6
 
 [node name="BulAtacTime" type="Timer" parent="."]
 wait_time = 2.0
+
+[node name="TentAtacTime" type="Timer" parent="."]
+wait_time = 2.0
 autostart = true
 [connection signal="animation_finished" from="BodyAnim" to="." method="_on_AnimationPlayer_animation_finished"]
-[connection signal="timeout" from="BulAtacTime" to="." method="Bullet_attac"]
+[connection signal="timeout" from="BulAtacTime" to="." method="Attack_Bullet"]
+[connection signal="timeout" from="TentAtacTime" to="." method="Attac_Tentacle"]
